@@ -30,11 +30,11 @@
         <h3>Ești angajat sau angajator?</h3>
         <ul>
             <li>
-                <input type="radio" target="q2" name="angajat" id="angajat" value="true" data-bind="checked: angajat">
+                <input type="radio" target="q2" name="angajat" id="angajat" value="true" data-bind="checked: angajat, event:{ change: reset}">
                 <label for="angajat">Angajat</label>
             </li>
             <li>
-                <input type="radio" target="q3" name="angajat" id="angajator" value="false" data-bind="checked: angajat">
+                <input type="radio" target="q3" name="angajat" id="angajator" value="false" data-bind="checked: angajat, event:{ change: reset}">
                 <label for="angajator">Angajator</label>
             </li>
         </ul>
@@ -44,11 +44,11 @@
             <h3>Ești bugetar(ă) sau lucrezi în mediul privat?</h3>
             <ul>
                 <li>
-                    <input type="radio" name="q2_1" id="bugetar" value='true' data-bind="checked: bugetarAngajat">
+                    <input type="radio" name="q2_1" id="bugetar" value='true' data-bind="checked: bugetarAngajat, event:{ change: reset}">
                     <label for="bugetar">Sunt bugetar(ă)</label>
                 </li>
                 <li>
-                    <input type="radio" target="q2_4" name="q2_1" value='false' id="privat" data-bind="checked: bugetarAngajat">
+                    <input type="radio" target="q2_4" name="q2_1" value='false' id="privat" data-bind="checked: bugetarAngajat, event:{ change: reset}">
                     <label for="privat">Lucrez în mediul privat</label>
                 </li>
             </ul>
@@ -58,31 +58,31 @@
             <ul>
                 <li>
                     <span>
-                        <input type="radio" name="q2_2" id="it" data-bind="checked: domeniuSelected" value="it">
+                        <input type="radio" name="q2_2" id="it" data-bind="checked: domeniuSelected, event:{ change: reset}" value="it">
                         <label for="it">Lucrez în IT</label>
                     </span>
                 </li>
                 <li>
                     <span>
-                        <input type="radio" name="q2_2" id="cercetare" data-bind="checked: domeniuSelected" value="cercetare">
+                        <input type="radio" name="q2_2" id="cercetare" data-bind="checked: domeniuSelected, event:{ change: reset}" value="cercetare">
                         <label for="cercetare">Lucrez în cercetare și dezvoltare</label>
                     </span>
                 </li>
                 <li>
                     <span>
-                        <input type="radio" name="q2_2" id="horeca" data-bind="checked: domeniuSelected" value="horeca">
+                        <input type="radio" name="q2_2" id="horeca" data-bind="checked: domeniuSelected, event:{ change: reset}" value="horeca">
                         <label for="horeca">Lucrez sezonier în industria HoReCa (hoteluri, restaurante, cafenele)</label>
                     </span>
                 </li>
                 <li>
                 <span>
-                    <input type="radio" name="q2_2" id="handicap" data-bind="checked: domeniuSelected" value="handicap">
+                    <input type="radio" name="q2_2" id="handicap" data-bind="checked: domeniuSelected, event:{ change: reset}" value="handicap">
                     <label for="handicap">Beneficiez de reducerea impozitului din cauza unui handicap</label>
                 </span>
                 </li>
                 <li>
                     <span>
-                        <input type="radio" name="q2_2" id="nimic" data-bind="checked: domeniuSelected" value="niciuna">
+                        <input type="radio" name="q2_2" id="nimic" data-bind="checked: domeniuSelected, event:{ change: reset}" value="niciuna">
                         <label for="nimic">Niciuna din cele de mai sus</label>
                     </span>
                 </li>
@@ -93,19 +93,19 @@
             <ul>
                 <li>
                     <span>
-                        <input type="radio" name="q2_4" id="da_transfer" data-bind="checked: transfer" value="da">
+                        <input type="radio" name="q2_4" id="da_transfer" data-bind="checked: transfer, event:{ change: reset}" value="da">
                         <label for="da_transfer">Da</label>
                     </span>
                 </li>
                 <li>
                     <span>
-                        <input type="radio" name="q2_4" id="nu_transfer" data-bind="checked: transfer" value="nu">
+                        <input type="radio" name="q2_4" id="nu_transfer" data-bind="checked: transfer, event:{ change: reset}" value="nu">
                         <label for="nu_transfer">Nu</label>
                     </span>
                 </li>
                 <li>
                     <span>
-                        <input type="radio" name="q2_4" id="idk_transfer" data-bind="checked: transfer" value="idk">
+                        <input type="radio" name="q2_4" id="idk_transfer" data-bind="checked: transfer, event:{ change: reset}" value="idk">
                         <label for="idk_transfer">Nu știu</label>
                     </span>
                 </li>
@@ -114,10 +114,11 @@
         <div class="q2_3 question">
             <h3>Introdu salariul tău net (în mână). Nu-ți fă griji, nu vom păstra nimic din datele introduse.</h3>
             <div class="input-field">
-                <input type="number" name="angajat_net" id="angajat_net" data-bind="value: salariu">
+                <input type="number" name="angajat_net" id="angajat_net" data-bind="value: salariu, event:{ change: reset}">
                 <label for="angajat_net">RON</label>
             </div>
-            <button type="button" class="btn btn-primary btn_angajat"  data-bind="click: calcSalariu" target="a1">Calculează noul meu salariu revoluționar</button>
+            <button type="button" class="btn btn-primary btn_angajat"  data-bind="click: calcSalariu, event:{ change: reset}"
+            target="a1">Calculează noul meu salariu revoluționar</button>
         </div>
     </div>
     <div class="answer a1" data-bind="fadeVisible:  angajat() === 'true'
@@ -138,7 +139,6 @@
         fadeVisible:  angajat() === 'true'
         && bugetarAngajat() === 'false'
         && button1Visible
-
         && (transfer() === 'nu' || (transfer() === 'da' && domeniuSelected() !== 'niciuna'))
         ">
             <p>Datorită Revoluției Fiscale, de la 1 ianuarie 2018 vei primi cu

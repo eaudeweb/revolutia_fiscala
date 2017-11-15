@@ -194,6 +194,9 @@ domtoimage.toPng(toImage)
       console.log('calcReducereSalariu', this)
     }
 
+    this.reset = function reset() {
+      this.button1Visible(false);
+    }
   };
 
   ko.bindingHandlers.fadeVisible = {
