@@ -147,9 +147,8 @@ $(document).ready(function(){
       this.button1Visible(true);
       this.result(result);
       setTimeout(function(){
-
-      createImage()
-      },300)
+       createImage()
+      },1200)
 
       return result;
     };
@@ -181,15 +180,16 @@ $(document).ready(function(){
 
 
 function createImage(){
-  var toImage = document.querySelector('.a1.answer')
+  // var toImage = $('.answer-visible');
+  // console.log(toImage)
 
-  domtoimage.toPng(toImage)
-    .then(function (dataUrl) {
-        var img = new Image();
-        img.src = dataUrl;
-        document.body.appendChild(img);
-  })
-  .catch(function (error) {
-      console.error('oops, something went wrong!', error);
-  });
+  // domtoimage.toPng(toImage)
+  //   .then(function (dataUrl) {
+  //       var img = new Image();
+  //       img.src = dataUrl;
+  //       document.body.appendChild(img);
+  // })
+  // .catch(function (error) {
+  //     console.error('oops, something went wrong!', error);
+  // });
 }
