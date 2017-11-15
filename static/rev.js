@@ -148,7 +148,7 @@ $(document).ready(function(){
       this.result(result);
       setTimeout(function(){
        createImage()
-      },1200)
+      },300)
 
       return result;
     };
@@ -180,16 +180,47 @@ $(document).ready(function(){
 
 
 function createImage(){
-  // var toImage = $('.answer-visible');
-  // console.log(toImage)
+  var result = $('body').find('.answer_visible').clone();
+  var toImage = $('.image-generator')
+  toImage.html(result)
+  toImage = toImage.find('.fb-message')[0]
 
-  // domtoimage.toPng(toImage)
-  //   .then(function (dataUrl) {
-  //       var img = new Image();
-  //       img.src = dataUrl;
-  //       document.body.appendChild(img);
-  // })
-  // .catch(function (error) {
-  //     console.error('oops, something went wrong!', error);
-  // });
+  domtoimage.toJpeg(toImage, { quality: 1 })
+    .then(function (dataUrl) {
+        var img = new Image();
+        img.src = dataUrl;
+        img.classList.add('hiddendiv');
+        
+        document.body.appendChild(img);
+        
+        // var hash = generateHash()
+        // download(blob, '/static/test'+hash+'.png', 'png')
+
+
+
+  })
+  .catch(function (error) {
+      console.error('oops, something went wrong!', error);
+  });
+}
+
+
+function generateHash(){
+    // dec2hex :: Integer -> String
+function dec2hex (dec) {
+  return ('0' + dec.toString(16)).substr(-2)
+}
+
+// generateId :: Integer -> String
+function generateId (len) {
+  var arr = new Uint8Array((len || 40) / 2)
+  window.crypto.getRandomValues(arr)
+  return Array.from(arr, dec2hex).join('')
+}
+var currentdate = new Date().valueOf(); 
+
+
+var id = generateId(20) + currentdate
+
+return id
 }

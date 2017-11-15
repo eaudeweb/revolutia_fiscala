@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <title>Revoluția Fiscală</title>
-    <meta name="description" content="The HTML5 Herald">
-    <meta name="author" content="SitePoint">
+    <meta name="description" content="Revoluția Fiscală">
+    <meta name="none" content="Revoluția Fiscală">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
       <!-- Compiled and minified CSS -->
@@ -14,11 +14,28 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./static/rev.css">
-<script type="text/javascript" src="./static/dom-to-image.min.js"></script>
+    <script type="text/javascript" src="./static/dom-to-image.min.js"></script>
+
+    <!-- <script type="text/javascript" src="./static/download.js"></script> -->
+      <meta property="og:url"           content="https://revolutiafiscala.ro" />
+      <meta property="og:type"          content="website" />
+      <meta property="og:title"         content="Revoluția Fiscală" />
+      <meta property="og:description"   content="" />
+      <meta property="og:image"         content="http://revolutiafiscala.edw.ro/static/header.jpg" />
 
 </head>
 
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
 <div class="header">
   <img src="./static/header.jpg"/>
 </div>
@@ -124,55 +141,105 @@
     <div class="answer a1" data-bind="fadeVisible:  angajat() === 'true'
     && bugetarAngajat() === 'true'
     && button1Visible ,
-    css: 'answer_visible'
+    css: {'answer_visible': angajat() === 'true'
+        && bugetarAngajat() === 'true'
+        && button1Visible 
+    }
     ">
         <div class="answer-body">    
-            <img src="./static/header.jpg"/>
             <p>De la 1 ianuarie 2018 urma să-ți crească salariul net (în mână) cu
                 <span id="sal_net" data-bind="text: result().diferenta">xxx</span>
                 RON, dar Revoluția Fiscală ți-a luat
                 <span id="procent" data-bind="text: result().procent" >x</span>% din această creștere! Revoluționar, nu?</p>
             <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. *doar procentul va fi postat pe Facebook.</p>
         </div>
+        <div class="fb-message">
+            <img src="./static/header.jpg"/>
+            <p>De la 1 ianuarie 2018 urma să-mi crească salariul cu 25% dar Revoluția Fiscală mi-a luat <span id="procent" data-bind="text: result().procent" >x</span>% din această creștere. Mulțumesc, PSD! Asta da revoluție!</p>
+            <p>Află și tu cum vei fi afectat de Revoluția Fiscală PSD-ALDE la www.revolutiafiscala.ro</p>
+        </div>  
     </div>
     <div class="answer-group a2" data-bind="fadeVisible:  angajat() === 'true'
     && bugetarAngajat() === 'false'
-    && button1Visible
+    && button1Visible,
+    css: {'answer_visible': angajat() === 'true'
+        && bugetarAngajat() === 'false'
+        && button1Visible 
+    }
     ">
         <div class="a2_1 answer" data-bind="
         fadeVisible:  angajat() === 'true'
         && bugetarAngajat() === 'false'
         && button1Visible
-        && (transfer() === 'nu' || (transfer() === 'da' && domeniuSelected() !== 'niciuna'))
-        ">
-            <p>Datorită Revoluției Fiscale, de la 1 ianuarie 2018 vei primi cu
-                <span id="sal_net" data-bind="text: result().diferenta">xxx</span> RON mai puțin la salariu! Revoluționar, nu?</p>
-            <p>Asta înseamnă o reducere de
-                <span id="procent" data-bind="text: result().contrib">x</span>% a salariului tău net (în mână)!</p>
-            <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. *doar procentul va fi postat pe Facebook</p>
+        && (transfer() === 'nu' || (transfer() === 'da' && domeniuSelected() !== 'niciuna')),
+        css: {'answer_visible': angajat() === 'true'
+            && bugetarAngajat() === 'false'
+            && button1Visible
+            && (transfer() === 'nu' || (transfer() === 'da' && domeniuSelected() !== 'niciuna')) 
+        } 
+        ">  
+            <div class="answer-body">
+                <p>Datorită Revoluției Fiscale, de la 1 ianuarie 2018 vei primi cu
+                    <span id="sal_net" data-bind="text: result().diferenta">xxx</span> RON mai puțin la salariu! Revoluționar, nu?</p>
+                <p>Asta înseamnă o reducere de
+                    <span id="procent" data-bind="text: result().contrib">x</span>% a salariului tău net (în mână)!</p>
+                <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. *doar procentul va fi postat pe Facebook</p>
+            </div>
+            <div class="fb-message">
+                <img src="./static/header.jpg"/>
+                <p>De la 1 ianuarie 2018 salariul meu va scădea cu <span id="procent" data-bind="text: result().contrib">x</span>%. Mulțumesc, PSD! Asta da revoluție!</p>
+                <p>Află și tu cum vei fi afectat de Revoluția Fiscală PSD-ALDE la www.revolutiafiscala.ro</p>
+            </div>  
         </div>
 
         <div class="a2_2 answer" data-bind="fadeVisible:  angajat() === 'true'
         && bugetarAngajat() === 'false'
         && button1Visible
-        && transfer() === 'idk'
+        && transfer() === 'idk' ,
+        css: {'answer_visible':  angajat() === 'true'
+            && bugetarAngajat() === 'false'
+            && button1Visible
+            && transfer() === 'idk'
+        }
         ">
-            <p>Datorită Revoluției Fiscale, de la 1 ianuarie 2018 vei primi cu
-                <span id="sal_net" data-bind="text: result().diferenta">xxx</span> RON mai puțin în mână dacă angajatorul nu îți va transfera sumele aferente contribuțiilor către stat! Revoluționar, nu?</p>
-            <p>Asta înseamnă o reducere de
-                <span id="procent" data-bind="text: result().contrib">x</span>% a salariului tău net (în mână)!</p>
-            <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. *doar procentul va fi postat pe Facebook</p>
+            <div class="answer-body">
+                <p>Datorită Revoluției Fiscale, de la 1 ianuarie 2018 vei primi cu
+                    <span id="sal_net" data-bind="text: result().diferenta">xxx</span> RON mai puțin în mână dacă angajatorul nu îți va transfera sumele aferente contribuțiilor către stat! Revoluționar, nu?</p>
+                <p>Asta înseamnă o reducere de
+                    <span id="procent" data-bind="text: result().contrib">x</span>% a salariului tău net (în mână)!</p>
+                <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. *doar procentul va fi postat pe Facebook</p>
+            </div>
+            <div class="fb-message">
+                <img src="./static/header.jpg"/>
+                <p>De la 1 ianuarie 2018 salariul meu va scădea cu până la <span id="procent" data-bind="text: result().contrib">x</span>%. Mulțumesc, PSD! Asta da revoluție!</p>
+                <p>Află și tu cum vei fi afectat de Revoluția Fiscală PSD-ALDE la www.revolutiafiscala.ro</p>
+            </div>  
+
         </div>
 
         <div class="a2_3 answer" data-bind="fadeVisible:  angajat() === 'true'
         && bugetarAngajat() === 'false'
         && button1Visible
         && transfer() === 'da'
-        && domeniuSelected() === 'niciuna'
-        ">
-            <p>Felicitări, de la 1 ianuarie 2018 vei primi
-                <span id="sal_net" data-bind="text: result().contrib">x</span> % în plus pe lună! Revoluționar, nu?</p>
-            <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE.</p>
+        && domeniuSelected() === 'niciuna',
+        css: {'answer_visible': 
+            angajat() === 'true'
+            && bugetarAngajat() === 'false'
+            && button1Visible
+            && transfer() === 'da'
+            && domeniuSelected() === 'niciuna'
+        }
+        ">  
+            <div class="answer-body"> 
+                <p>Felicitări, de la 1 ianuarie 2018 vei primi
+                    <span id="sal_net" data-bind="text: result().contrib">x</span>% în plus pe lună! Revoluționar, nu?</p>
+                <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE.</p>
+            </div>
+            <div class="fb-message">
+                <img src="./static/header.jpg"/>
+                <p>De la 1 ianuarie 2018 salariul meu va crește cu <span id="sal_net" data-bind="text: result().contrib">x</span>%. Mulțumesc, PSD! Asta da revoluție!</p>
+                <p>Află și tu cum vei fi afectat de Revoluția Fiscală PSD-ALDE la www.revolutiafiscala.ro</p>
+            </div>  
         </div>
     </div>
 
@@ -229,6 +296,12 @@
 
 </div>
 
+<div class="hiddendiv">
+    
+<div class="fb-share-button" data-href="http://revolutiafiscala.edw.ro" data-layout="button" data-size="large" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Frevolutiafiscala.edw.ro%2F&amp;src=sdkpreparse">Share</a></div>
+
+</div>
+
 <div class="footer">
     <div class="container">
         <img class="inline-image" src="./static/usr.png"/>
@@ -238,5 +311,10 @@
         </ul>
     </div>
 </div>
+
+<div class="image-generator">
+    
+</div>
+
 <script type="text/javascript" src="./static/rev.js"></script>
 </body>
