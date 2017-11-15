@@ -127,7 +127,6 @@ domtoimage.toPng(toImage)
           result.trebuie = trebuia(result.net).toFixed(2);
           result.este = este_fara_impozit(result.net);
           result.procent = procentaj_pierdere(result.trebuie, result.este, result.net).toFixed(2);
-          $()
         } else {// cu impozit
           result.trebuie = trebuia(result.net).toFixed(2);
           result.este = este_cu_impozit(result.net);
@@ -164,7 +163,7 @@ domtoimage.toPng(toImage)
             case "da": // a2_3 answer
               result.este = este_cu_impozit(result.net);
               // xxx  este - net
-              result.diferenta = (result.este - result.net).toFixed(2);
+              result.contrib = -1 * contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
               break;
             case "nu": // a2_1 answer
               result.este = fara_contrib_cu_impozit(result.net);
