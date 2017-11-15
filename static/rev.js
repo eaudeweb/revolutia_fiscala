@@ -107,6 +107,8 @@ domtoimage.toPng(toImage)
     this.procent = ko.observable();
     this.diferenta = ko.observable();
     this.contrib = ko.observable();
+    this.button1Visible = ko.observable(false);
+    this.result = ko.observable({net: null, trebuie: null, este: null, procent: null, contrib: null, diferenta: null});
 
     this.domeniu = [
       {text: 'Lucrez in IT', value: "it"},
@@ -122,16 +124,14 @@ domtoimage.toPng(toImage)
 
       if(this.bugetarAngajat() === 'true') { // bugetar
         if(isInArray(this.domeniu, this.domeniuSelected())) { // fara impozit
-          result.trebuie = trebuia(result.net);
+          result.trebuie = trebuia(result.net).toFixed(2);
           result.este = este_fara_impozit(result.net);
-          result.procent = procentaj_pierdere(result.trebuie, result.este, result.net);
-          console.log('bugetar fara impozit da este', result.este, 'procent', result.procent)
+          result.procent = procentaj_pierdere(result.trebuie, result.este, result.net).toFixed(2);
           $()
         } else {// cu impozit
-          result.trebuie = trebuia(result.net);
+          result.trebuie = trebuia(result.net).toFixed(2);
           result.este = este_cu_impozit(result.net);
-          result.procent = procentaj_pierdere(result.trebuie, result.este, result.net);
-          console.log('bugetar cu impozit da este', result.este, 'procent', result.procent)
+          result.procent = procentaj_pierdere(result.trebuie, result.este, result.net).toFixed(2);
         }
         result.diferenta = result.trebuie - result.net;
       } else { // privat
@@ -139,22 +139,22 @@ domtoimage.toPng(toImage)
 
           switch (this.transfer()) {
             case "da": // a2_1 answer
-            result.este = este_fara_impozit(result.net);
+              result.este = este_fara_impozit(result.net);
               // xxx net - este
-              result.contrib = contrib_procentaj_pierdere(result.este, result.net); // procent
-              console.log('fara impozit da este', result.este, 'contrib', result.contrib)
+              result.diferenta = (result.net - result.este).toFixed(2);
+              result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
               break;
             case "nu": // a2_1 answer
-            result.este = fara_contrib_fara_impozit(result.net);
+              result.este = fara_contrib_fara_impozit(result.net);
               // xxx net - este
-              result.contrib = contrib_procentaj_pierdere(result.este, result.net); // procent
-              console.log('fara impozit nu este', result.este, 'contrib', result.contrib)
+              result.diferenta = (result.net - result.este).toFixed(2);
+              result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
               break;
             case "idk": // a2_2 answer
-            result.este = fara_contrib_fara_impozit(result.net);
+              result.este = fara_contrib_fara_impozit(result.net);
               // xxx net - este
-              result.contrib = contrib_procentaj_pierdere(result.este, result.net); // procent
-              console.log('fara impozit idk este', result.este, 'contrib', result.contrib)
+              result.diferenta = (result.net - result.este).toFixed(2);
+              result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
               break;
             default:
               break;
@@ -162,20 +162,21 @@ domtoimage.toPng(toImage)
         } else { // cu impozit
           switch (this.transfer()) {
             case "da": // a2_3 answer
-            result.este = este_cu_impozit(result.net);
+              result.este = este_cu_impozit(result.net);
               // xxx  este - net
+              result.diferenta = (result.este - result.net).toFixed(2);
               break;
             case "nu": // a2_1 answer
-            result.este = fara_contrib_cu_impozit(result.net);
+              result.este = fara_contrib_cu_impozit(result.net);
               // xxx net - este
-              result.contrib = contrib_procentaj_pierdere(result.este, result.net); // procent
-              console.log('cu impozit nu este', result.este, 'contrib', result.contrib)
+              result.diferenta = (result.net - result.este).toFixed(2);
+              result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
               break;
             case "idk": // a2_2 answer
-            result.este = fara_contrib_cu_impozit(result.net);
+              result.este = fara_contrib_cu_impozit(result.net);
               // xxx net - este
-              result.contrib = contrib_procentaj_pierdere(result.este, result.net); // procent
-              console.log('cu impozit idk este', result.este, 'contrib', result.contrib)
+              result.diferenta = (result.net - result.este).toFixed(2);
+              result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
               break;
             default:
               break;
@@ -183,19 +184,14 @@ domtoimage.toPng(toImage)
 
         }
       }
-      this.showAnsw = ko.observable('true');
+      this.button1Visible(true);
+      this.result(result);
       console.log('result', result)
       return result;
     };
 
     this.calcReducereSalariu = function calcReducereSalariu() {
       console.log('calcReducereSalariu', this)
-    }
-    this.calcSumaTotalaScutiti = function calcSumaTotalaScutiti() {
-      console.log('calcSumaTotalaScutiti', this)
-    }
-    this.calcReducereSumaTotalaScutiti = function calcReducereSumaTotalaScutiti() {
-      console.log('calcReducereSumaTotalaScutiti', this)
     }
 
   };
