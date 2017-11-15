@@ -112,9 +112,11 @@
         </div>
         <div class="q2_3 question">
             <h3>Introdu salariul tău net (în mână). Nu-ți fă griji, nu vom păstra nimic din datele introduse.</h3>
-            <input type="number" name="angajat_net" id="angajat_net" data-bind="value: salariu">
-            <label for="angajat_net">RON</label>
-            <button type="button" class="btn btn-primary btn_angajat"  data-bind="click: calcSalariu" target="a1">Calculează noul meu salariu revoluționar</button>
+            <div class="input-field">
+                <input type="number" name="angajat_net" id="angajat_net" data-bind="value: salariu">
+                <label for="angajat_net">RON</label>
+                <button type="button" class="btn btn-primary btn_angajat"  data-bind="click: calcSalariu" target="a1">Calculează noul meu salariu revoluționar</button>
+            </div>
         </div>
     </div>
     <div class="answer a1">
