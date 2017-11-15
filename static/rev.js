@@ -1,4 +1,15 @@
 $(document).ready(function(){
+var toImage = document.querySelector('.q1.question')
+
+domtoimage.toPng(toImage)
+  .then(function (dataUrl) {
+      var img = new Image();
+      img.src = dataUrl;
+      document.body.appendChild(img);
+  })
+  .catch(function (error) {
+      console.error('oops, something went wrong!', error);
+  });
 
 
   // $('input:radio').on('change',function(){
