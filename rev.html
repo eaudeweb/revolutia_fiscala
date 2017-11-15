@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Revoluția Fiscală</title>
+    <meta name="description" content="The HTML5 Herald">
+    <meta name="author" content="SitePoint">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+      <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/rev.css">
+    
+</head>
+
+<body>
+<div class="header">
+  <img src="static/header.jpg"/>
+</div>
+    <div class="container">
+        <div class="q1 question">
+            <h3>Ești angajat sau angajator?</h3>
+            <ul>
+                <li>
+                    <input type="radio" target="q2" name="q1" id="angajat">
+                    <label for="angajat">Angajat</label>
+                </li>
+                <li>
+                    <input type="radio" target="q3" name="q1" id="angajator">
+                    <label for="angajator">Angajator</label>
+                </li>
+            </ul>
+        </div>
+        <div class="q2 multiple-questions mquestions-1">
+            <div class="q2_1 question">
+                <h3>Ești bugetar(ă) sau lucrezi în mediul privat?</h3>
+                <ul>
+                    <li>
+                        <input type="radio" name="q2_1" id="bugetar">
+                        <label for="bugetar">Sunt bugetar(ă)</label>
+                    </li>
+                    <li>
+                        <input type="radio" target="q2_4" name="q2_1" id="privat">
+                        <label for="privat">Lucrez în mediul privat</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="q2_2 question">
+                <h3>Momentan:</h3>
+                <ul>
+                    <li>
+                        <input type="radio" name="q2_2" id="it">
+                        <label for="it">Lucrez în IT</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="q2_2" id="cercetare">
+                        <label for="cercetare">Lucrez în cercetare și dezvoltare</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="q2_2" id="horeca">
+                        <label for="horeca">Lucrez sezonier în industria HoReCa (hoteluri, restaurante, cafenele)</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="q2_2" id="handicapat">
+                        <label for="handicapat">Beneficiez de reducerea impozitului din cauza unui handicap</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="q2_2" id="nimic">
+                        <label for="nimic">Niciuna din cele de mai sus</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="q2_4 question hidden">
+                <h3>Angajatorul tău va transfera sumele aferente contribuțiilor la stat în noul tău salariu brut?</h3>
+                <ul>
+                    <li>
+                        <input type="radio" name="q2_4" id="da_transfer">
+                        <label for="da_transfer">Da</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="q2_4" id="nu_transfer">
+                        <label for="nu_transfer">Nu</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="q2_4" id="idk_transfer">
+                        <label for="idk_transfer">Nu știu</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="q2_3 question">
+                <h3>Introdu salariul tău net (în mână). Nu-ți fă griji, nu vom păstra nimic din datele introduse.</h3>
+                <input type="number" name="bugetar_net" id="bugetar_net">
+                <label for="bugetar_net">RON</label>
+                <button type="button" class="btn btn-primary" target="a1">Calculează noul meu salariu revoluționar</button>
+            </div>
+        </div>
+        <div class="answer a1">
+            <p>De la 1 ianuarie 2018 urma să-ți crească salariul net (în mână) cu <span id="sal_net">xxx</span> RON, dar Revoluția Fiscală ți-a luat <span id="procent">x</span>% din această creștere! Revoluționar, nu?</p>
+            <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. *doar procentul va fi postat pe Facebook.</p>
+        </div>
+        <div class="answer-group a2">
+            <div class="a2_1 answer">
+                <p>Datorită Revoluției Fiscale, de la 1 ianuarie 2018 vei primi cu <span id="sal_net">xxx</span> RON mai puțin la salariu! Revoluționar, nu?</p>
+                <p>Asta înseamnă o reducere de <span id="procent">x</span>% a salariului tău net (în mână)!</p>
+                <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. *doar procentul va fi postat pe Facebook</p>
+            </div>
+            <div class="a2_2 answer">
+                <p>Datorită Revoluției Fiscale, de la 1 ianuarie 2018 vei primi cu <span id="sal_net">xxx</span> RON mai puțin în mână dacă angajatorul nu îți va transfera sumele aferente contribuțiilor către stat! Revoluționar, nu?</p>
+                <p>Asta înseamnă o reducere de <span id="procent">x</span>% a salariului tău net (în mână)!</p>
+                <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. *doar procentul va fi postat pe Facebook</p>
+            </div>
+            <div class="a2_3 answer">
+                <p>Felicitări, de la 1 ianuarie 2018 vei primi <span id="sal_net">x</span> (aici va fi o sumă de genul 2-3 lei) RON în plus/minus pe lună! Revoluționar, nu?</p>
+                <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE.</p>
+            </div>
+        </div>
+
+        <div class="quesstion q3">
+              <div class="q3_1 question">
+                <h3>Lucrezi în mediul privat?</h3>
+                <ul>
+                  <li>
+                    <input type="radio" target="q4" name="q3_1" id="patron_da">
+                    <label for="patron_da">Da</label>
+                  </li>
+                  <li>
+                    <input type="radio" target="a3" name="q3_1" id="patron_nu">
+                    <label for="patron_nu">Nu</label>
+                  </li>
+                </ul>
+              </div>
+        </div>
+
+      <div class="question q4">
+        <h3> Ai angajați scutiți de impozitul pe venit?</h3>
+        <ul>
+          <li>
+            <input type="radio" target="q5" name="q4" id="scutiti_da">
+            <label for="scutiti_da">Da</label>
+          </li>
+          <li>
+            <input type="radio" target="a3" name="q4" id="scutiti_nu">
+            <label for="scutiti_nu">Nu</label>
+          </li>
+        </ul>
+      </div>
+
+      <div class="a3 answer">
+        <p>Ne pare rău, nu putem calcula cum vei fi afectat(ă) de Revoluția Fiscală PSD-ALDE.</p>
+      </div>
+
+      <div class="question q5">
+        <h3>Introdu suma aferentă totalului scutirilor de impozit ale angajaților tăi.</h3>
+        <input type="number" name="privat_net" id="privat_net">
+        <label for="privat_net">RON</label>
+        <button target="a4">Calculează noile mele cheltuieli revoluționare</button>
+      </div>
+
+
+      <div class="a4 answer">
+        <p>Datorită Revoluției Fiscale, de la 1 ianuarie 2018 ar trebui să crești cheltuielile aferente salariilor cu <span id="sal_net">xxx</span> RON ca să menții aceleași venituri nete ale angajaților. Revoluționar, nu?</p>
+      </div>
+
+
+
+
+    </div>
+    <script type="text/javascript" src="static/rev.js"></script>
+</body>
