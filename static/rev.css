@@ -130,8 +130,8 @@ input:not([type]):focus:not([readonly])+label, input[type=text]:not(.browser-def
 }
 
 /*after development*/
-
-/*.container > .question,
+/*
+.container > .question,
 .multiple-questions {
 position: absolute;
 top: 0;
@@ -142,8 +142,8 @@ background: white;
 
 .answer {
 	display: none;
-}*/
-
+}
+*/
 
 input[type="number"] {
 	    font-size: 1.2rem!important;
@@ -156,4 +156,36 @@ input[type="number"] {
 	    font-size: 1.2rem;
     color: #be0e14;
     font-weight: 500;
+}
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.inline-image {
+	width: 30px;
+	display: inline-block;
+}
+.footer-links {
+	display: inline-block;
+}
+
+.footer-links li {
+	line-height: 50px;
+	margin: 0 1rem;
+	display: inline-block;
+}
+
+.footer-links li a {
+	color: #aaa;
+	font-size: .8rem;
+}
+
+.footer .container {
+	border-top: 1px solid #aaa;
+	padding-top: 1rem;
+	display: flex;
+    height: 50px;
+    justify-content: flex-start;
+    align-items: center;
 }
