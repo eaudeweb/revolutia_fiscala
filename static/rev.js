@@ -37,69 +37,180 @@ domtoimage.toPng(toImage)
   //   	$('.'+target).css('display', 'block')
   // });
 
-  function calcSalIt(params) {
+  function este_fara_impozit(net){
+    complet = net * 1.473053892;
+    return complet * 0.6356968215;
+  }
 
+  // function trebuia_fara_impozit(net){
+  //   brut = net / 0.835 * 1.25;
+  //   return brut * 0.835;
+  // }
+  function trebuia(net){
+    return net * 1.25;
+  }
+
+  function este_cu_impozit(net){
+    complet = net * 1.753635586;
+    return complet * 0.5721271394;
+  }
+
+  // function trebuia_cu_impozit(net){
+  //   brut = net / 0.7014 * 1.25;
+  //   console.log("brut " + brut);
+  //   return brut * 0.585;
+  // }
+
+  function procentaj_pierdere(trebuia, este, net){
+    return ((trebuia - este) * 100) / (trebuia - net);
+  }
+
+  function contrib_procentaj_pierdere(este, net){
+    return 100 - 100*este/net;
+  }
+
+  function fara_contrib_fara_impozit(net){
+    brut = net / 0.835;
+    console.log("brut " + brut);
+    return brut * 0.65;
+  }
+
+  function fara_contrib_cu_impozit(net){
+    brut = net / 0.7014;
+    return brut * 0.585;
+  }
+
+  function isInArray(myArray, value) {
+    for (let index = 0; index < myArray.length-1; index++) {
+      const element = myArray[index];
+      if(element.value === value) {
+        return true;
       }
+    }
+    return false;
+  }
 
-      function calcSalNone(params) {
+  var ViewModel = function() {
+    this.angajat = ko.observable();
+    this.bugetarAngajat = ko.observable(false);
+    this.bugetarAngajator = ko.observable(false);
+    this.transfer = ko.observable(false);
+    this.salariu = ko.observable();
+    this.salariuCalculat = ko.observable();
+    this.reducere = ko.observable();
+    this.angajatiScutiti = ko.observable(false);
+    this.sumaTotalaScutiti = ko.observable();
+    this.sumaTotalaScutitiCalc = ko.observable();
+    this.domeniuSelected = ko.observable();
+    this.showAnsw = ko.observable(false);
+    this.trebuie = ko.observable();
+    this.procent = ko.observable();
+    this.diferenta = ko.observable();
+    this.contrib = ko.observable();
 
-      }
+    this.domeniu = [
+      {text: 'Lucrez in IT', value: "it"},
+      {text: 'Lucrez in cercetare și dezvoltare', value: "cercetare"},
+      {text: 'Lucrez in industria HoReCa (hoteluri, restaurante, cafenele)', value: "horeca"},
+      {text: 'Beneficiez de reducerea impozitului din cauza unui handicap', value: "handicap"},
+      {text: 'Niciuna din cele de mai sus', value: "niciuna"}
+    ]
 
-      function calcSalAngajatorScutiri(params) {
+    this.calcSalariu = function calcSalariu() {
+      var result = {net: null, trebuie: null, este: null, procent: null, contrib: null, diferenta: null};
+      result.net = parseInt(this.salariu());
 
-      }
-
-      function calcSalAngajatorNonScutiri(params) {
-
-      }
-
-      var ViewModel = function() {
-        this.angajat = ko.observable();
-        this.bugetarAngajat = ko.observable(false);
-        this.bugetarAngajator = ko.observable(false);
-        // this.privat = ko.observable(false);
-        this.transfer = ko.observable(false);
-        this.salariu = ko.observable();
-        this.salariuCalculat = ko.observable();
-        this.reducere = ko.observable();
-        this.angajatiScutiti = ko.observable(false);
-        this.sumaTotalaScutiti = ko.observable();
-        this.sumaTotalaScutitiCalc = ko.observable();
-        this.domeniuSelected = ko.observable();
-
-      //   this.domeniu = [
-      //     {text: 'Lucrez in IT', value: "it"},
-      //     {text: 'Lucrez in cercetare și dezvoltare', value: "cercetare"},
-      //     {text: 'Lucrez in industria HoReCa (hoteluri, restaurante, cafenele)', value: "horeca"},
-      //     {text: 'Beneficiez de reducerea impozitului din cauza unui handicap', value: "handicapat"},
-      //     {text: 'Niciuna din cele de mai sus', value: "niciuna"}
-      // ]
-
-        this.calcSalariu = function calcSalariu() {
-          console.log('calcSalariu', this)
+      if(this.bugetarAngajat() === 'true') { // bugetar
+        if(isInArray(this.domeniu, this.domeniuSelected())) { // fara impozit
+          result.trebuie = trebuia(result.net);
+          result.este = este_fara_impozit(result.net);
+          result.procent = procentaj_pierdere(result.trebuie, result.este, result.net);
+          console.log('bugetar fara impozit da este', result.este, 'procent', result.procent)
+          $()
+        } else {// cu impozit
+          result.trebuie = trebuia(result.net);
+          result.este = este_cu_impozit(result.net);
+          result.procent = procentaj_pierdere(result.trebuie, result.este, result.net);
+          console.log('bugetar cu impozit da este', result.este, 'procent', result.procent)
         }
+        result.diferenta = result.trebuie - result.net;
+      } else { // privat
+        if(isInArray(this.domeniu, this.domeniuSelected())) { // fara impozit
 
-        this.calcReducereSalariu = function calcReducereSalariu() {
-          console.log('calcReducereSalariu', this)
-        }
-        this.calcSumaTotalaScutiti = function calcSumaTotalaScutiti() {
-          console.log('calcSumaTotalaScutiti', this)
-        }
-        this.calcReducereSumaTotalaScutiti = function calcReducereSumaTotalaScutiti() {
-          console.log('calcReducereSumaTotalaScutiti', this)
-        }
-      };
-      ko.bindingHandlers.fadeVisible = {
-          init: function(element, valueAccessor) {
-              // Initially set the element to be instantly visible/hidden depending on the value
-              var value = valueAccessor();
-              $(element).toggle(ko.unwrap(value)); // Use "unwrapObservable" so we can handle values that may or may not be observable
-          },
-          update: function(element, valueAccessor) {
-              // Whenever the value subsequently changes, slowly fade the element in or out
-              var value = valueAccessor();
-              ko.unwrap(value) ? $(element).fadeIn() : $(element).fadeOut();
+          switch (this.transfer()) {
+            case "da": // a2_1 answer
+            result.este = este_fara_impozit(result.net);
+              // xxx net - este
+              result.contrib = contrib_procentaj_pierdere(result.este, result.net); // procent
+              console.log('fara impozit da este', result.este, 'contrib', result.contrib)
+              break;
+            case "nu": // a2_1 answer
+            result.este = fara_contrib_fara_impozit(result.net);
+              // xxx net - este
+              result.contrib = contrib_procentaj_pierdere(result.este, result.net); // procent
+              console.log('fara impozit nu este', result.este, 'contrib', result.contrib)
+              break;
+            case "idk": // a2_2 answer
+            result.este = fara_contrib_fara_impozit(result.net);
+              // xxx net - este
+              result.contrib = contrib_procentaj_pierdere(result.este, result.net); // procent
+              console.log('fara impozit idk este', result.este, 'contrib', result.contrib)
+              break;
+            default:
+              break;
           }
-      };
-      ko.applyBindings(new ViewModel());
+        } else { // cu impozit
+          switch (this.transfer()) {
+            case "da": // a2_3 answer
+            result.este = este_cu_impozit(result.net);
+              // xxx  este - net
+              break;
+            case "nu": // a2_1 answer
+            result.este = fara_contrib_cu_impozit(result.net);
+              // xxx net - este
+              result.contrib = contrib_procentaj_pierdere(result.este, result.net); // procent
+              console.log('cu impozit nu este', result.este, 'contrib', result.contrib)
+              break;
+            case "idk": // a2_2 answer
+            result.este = fara_contrib_cu_impozit(result.net);
+              // xxx net - este
+              result.contrib = contrib_procentaj_pierdere(result.este, result.net); // procent
+              console.log('cu impozit idk este', result.este, 'contrib', result.contrib)
+              break;
+            default:
+              break;
+          }
+
+        }
+      }
+      this.showAnsw = ko.observable('true');
+      console.log('result', result)
+      return result;
+    };
+
+    this.calcReducereSalariu = function calcReducereSalariu() {
+      console.log('calcReducereSalariu', this)
+    }
+    this.calcSumaTotalaScutiti = function calcSumaTotalaScutiti() {
+      console.log('calcSumaTotalaScutiti', this)
+    }
+    this.calcReducereSumaTotalaScutiti = function calcReducereSumaTotalaScutiti() {
+      console.log('calcReducereSumaTotalaScutiti', this)
+    }
+
+  };
+
+  ko.bindingHandlers.fadeVisible = {
+    init: function(element, valueAccessor) {
+        // Initially set the element to be instantly visible/hidden depending on the value
+        var value = valueAccessor();
+        $(element).toggle(ko.unwrap(value)); // Use "unwrapObservable" so we can handle values that may or may not be observable
+    },
+    update: function(element, valueAccessor) {
+        // Whenever the value subsequently changes, slowly fade the element in or out
+        var value = valueAccessor();
+        ko.unwrap(value) ? $(element).fadeIn() : $(element).fadeOut();
+    }
+  };
+  ko.applyBindings(new ViewModel());
 })

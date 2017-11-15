@@ -7,7 +7,7 @@
     <meta name="description" content="The HTML5 Herald">
     <meta name="author" content="SitePoint">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.0.0/knockout-min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
       <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
@@ -76,8 +76,8 @@
                 </li>
                 <li>
                 <span>
-                    <input type="radio" name="q2_2" id="handicapat" data-bind="checked: domeniuSelected" value="handicapat">
-                    <label for="handicapat">Beneficiez de reducerea impozitului din cauza unui handicap</label>
+                    <input type="radio" name="q2_2" id="handicap" data-bind="checked: domeniuSelected" value="handicap">
+                    <label for="handicap">Beneficiez de reducerea impozitului din cauza unui handicap</label>
                 </span>
                 </li>
                 <li>
@@ -120,23 +120,37 @@
             <button type="button" class="btn btn-primary btn_angajat"  data-bind="click: calcSalariu" target="a1">Calculează noul meu salariu revoluționar</button>
         </div>
     </div>
-    <div class="answer a1">
-        <p>De la 1 ianuarie 2018 urma să-ți crească salariul net (în mână) cu <span id="sal_net">xxx</span> RON, dar Revoluția Fiscală ți-a luat <span id="procent">x</span>% din această creștere! Revoluționar, nu?</p>
+    <div class="answer a1" data-bind="fadeVisible:  angajat() === 'true'
+    && bugetarAngajat() === 'true'
+    && (domeniuSelected() === 'it'
+    || domeniuSelected() === 'cercetare'
+    || domeniuSelected() === 'horeca'
+    || domeniuSelected() === 'handicap')
+    ">
+        <p>De la 1 ianuarie 2018 urma să-ți crească salariul net (în mână) cu
+            <span id="sal_net">xxx</span>
+            RON, dar Revoluția Fiscală ți-a luat
+            <span id="procent" >x</span>% din această creștere! Revoluționar, nu?</p>
         <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. *doar procentul va fi postat pe Facebook.</p>
     </div>
     <div class="answer-group a2">
         <div class="a2_1 answer">
-            <p>Datorită Revoluției Fiscale, de la 1 ianuarie 2018 vei primi cu <span id="sal_net">xxx</span> RON mai puțin la salariu! Revoluționar, nu?</p>
-            <p>Asta înseamnă o reducere de <span id="procent">x</span>% a salariului tău net (în mână)!</p>
+            <p>Datorită Revoluției Fiscale, de la 1 ianuarie 2018 vei primi cu
+                <span id="sal_net">xxx</span> RON mai puțin la salariu! Revoluționar, nu?</p>
+            <p>Asta înseamnă o reducere de
+                <span id="procent">x</span>% a salariului tău net (în mână)!</p>
             <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. *doar procentul va fi postat pe Facebook</p>
         </div>
         <div class="a2_2 answer">
-            <p>Datorită Revoluției Fiscale, de la 1 ianuarie 2018 vei primi cu <span id="sal_net">xxx</span> RON mai puțin în mână dacă angajatorul nu îți va transfera sumele aferente contribuțiilor către stat! Revoluționar, nu?</p>
-            <p>Asta înseamnă o reducere de <span id="procent">x</span>% a salariului tău net (în mână)!</p>
+            <p>Datorită Revoluției Fiscale, de la 1 ianuarie 2018 vei primi cu
+                <span id="sal_net">xxx</span> RON mai puțin în mână dacă angajatorul nu îți va transfera sumele aferente contribuțiilor către stat! Revoluționar, nu?</p>
+            <p>Asta înseamnă o reducere de
+                <span id="procent">x</span>% a salariului tău net (în mână)!</p>
             <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. *doar procentul va fi postat pe Facebook</p>
         </div>
         <div class="a2_3 answer">
-            <p>Felicitări, de la 1 ianuarie 2018 vei primi <span id="sal_net">x</span> (aici va fi o sumă de genul 2-3 lei) RON în plus/minus pe lună! Revoluționar, nu?</p>
+            <p>Felicitări, de la 1 ianuarie 2018 vei primi
+                <span id="sal_net">x</span> (aici va fi o sumă de genul 2-3 lei) RON în plus/minus pe lună! Revoluționar, nu?</p>
             <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE.</p>
         </div>
     </div>
