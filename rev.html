@@ -140,7 +140,7 @@
         </div>
     </div>
 
-    <div class="quesstion q3" data-bind="fadeVisible:  angajat() === 'false'">
+    <div class="question q3" data-bind="fadeVisible:  angajat() === 'false'">
           <div class="q3_1 question">
             <h3>Lucrezi în mediul privat?</h3>
             <ul>
@@ -176,9 +176,11 @@
 
   <div class="question q5" data-bind="fadeVisible:  angajat() === 'false' && bugetarAngajator() === 'false' && angajatiScutiti() === 'true'">
     <h3>Introdu suma aferentă totalului scutirilor de impozit ale angajaților tăi.</h3>
-    <input type="number" name="privat_net" id="privat_net" data-bind="value: sumaTotalaScutiti">
-    <label for="privat_net">RON</label>
-    <button target="a4" data-bind="click: calcSumaTotalaScutiti">Calculează noile mele cheltuieli revoluționare</button>
+        <div class="input-field">   
+        <input type="number" name="privat_net" id="privat_net" data-bind="value: sumaTotalaScutiti">
+        <label for="privat_net">RON</label>
+        <button type="button" class="btn btn-primary" target="a4" data-bind="click: calcSumaTotalaScutiti">Calculează noile mele cheltuieli revoluționare</button>
+    </div>
   </div>
 
 

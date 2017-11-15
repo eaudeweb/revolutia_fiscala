@@ -124,3 +124,36 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
 input:not([type]):focus:not([readonly])+label, input[type=text]:not(.browser-default):focus:not([readonly])+label, input[type=password]:not(.browser-default):focus:not([readonly])+label, input[type=email]:not(.browser-default):focus:not([readonly])+label, input[type=url]:not(.browser-default):focus:not([readonly])+label, input[type=time]:not(.browser-default):focus:not([readonly])+label, input[type=date]:not(.browser-default):focus:not([readonly])+label, input[type=datetime]:not(.browser-default):focus:not([readonly])+label, input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label, input[type=tel]:not(.browser-default):focus:not([readonly])+label, input[type=number]:not(.browser-default):focus:not([readonly])+label, input[type=search]:not(.browser-default):focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label {
 	color:  #be0e14;
 }
+
+.container {
+	position: relative;
+}
+
+/*after development*/
+
+/*.container > .question,
+.multiple-questions {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+background: white;
+}
+
+.answer {
+	display: none;
+}*/
+
+
+input[type="number"] {
+	    font-size: 1.2rem!important;
+    color: #be0e14;
+    font-weight: 500;
+    border-color: #be0e14!important;
+}
+
+.input-field label {
+	    font-size: 1.2rem;
+    color: #be0e14;
+    font-weight: 500;
+}
