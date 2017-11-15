@@ -87,20 +87,26 @@
                 </li>
             </ul>
         </div>
-        <div class="q2_4 question" data-bind="visible: bugetarAngajat() === 'false'">
+        <div class="q2_4 question block" data-bind="visible: bugetarAngajat() === 'false'">
             <h3>Angajatorul tău va transfera sumele aferente contribuțiilor la stat în noul tău salariu brut?</h3>
             <ul>
                 <li>
-                    <input type="radio" name="q2_4" id="da_transfer" data-bind="checked: transfer" value="da">
-                    <label for="da_transfer">Da</label>
+                    <span>
+                        <input type="radio" name="q2_4" id="da_transfer" data-bind="checked: transfer" value="da">
+                        <label for="da_transfer">Da</label>
+                    </span>
                 </li>
                 <li>
-                    <input type="radio" name="q2_4" id="nu_transfer" data-bind="checked: transfer" value="nu">
-                    <label for="nu_transfer">Nu</label>
+                    <span>
+                        <input type="radio" name="q2_4" id="nu_transfer" data-bind="checked: transfer" value="nu">
+                        <label for="nu_transfer">Nu</label>
+                    </span>
                 </li>
                 <li>
-                    <input type="radio" name="q2_4" id="idk_transfer" data-bind="checked: transfer" value="idk">
-                    <label for="idk_transfer">Nu știu</label>
+                    <span>
+                        <input type="radio" name="q2_4" id="idk_transfer" data-bind="checked: transfer" value="idk">
+                        <label for="idk_transfer">Nu știu</label>
+                    </span>
                 </li>
             </ul>
         </div>

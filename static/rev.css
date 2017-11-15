@@ -24,7 +24,7 @@ body {
 }
 
 h3 {
-	font-size: 2rem;
+	font-size: 1.6rem;
 	color: #be0e14;
 }
 
@@ -47,7 +47,7 @@ h3 {
 	border: none;
 	padding: 0;
 	margin: 0;
-	// text-align: left;
+	text-align: left;
 }
 .question.block ul li span {
   	display: inline-block;
@@ -88,6 +88,7 @@ h3 {
 
 [type="radio"]+label:after {
 	content: '✓';
+	text-align: center;
 	line-height: 1.5;
 	font-size: .6rem;
     color: white;
