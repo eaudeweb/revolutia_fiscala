@@ -220,3 +220,27 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
     justify-content: flex-start;
     align-items: center;
 }
+
+
+.answer {
+    position: fixed;
+    top: 0;
+    background: white;
+    padding: 1rem;
+    font-size: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    /* box-shadow: 1px 1px 3px #aaa; */
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    background: url(./header.jpg);
+    background-position: 50% 1%;
+    color: white;
+    font-weight: bolder;
+    text-shadow: 1px 1px 1px black;
+    -webkit-text-stroke: 1px black;
+    text-align: center;
+    border: 3px solid black;
+    border-top: none;
+}
