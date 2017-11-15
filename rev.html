@@ -38,7 +38,7 @@
             </li>
         </ul>
     </div>
-    <div class="q2 multiple-questions mquestions-1" data-bind="visible: angajat() === 'true'">
+    <div class="q2 multiple-questions mquestions-1" data-bind="fadeVisible: angajat() === 'true'">
         <div class="q2_1 question">
             <h3>Ești bugetar(ă) sau lucrezi în mediul privat?</h3>
             <ul>
@@ -87,7 +87,7 @@
                 </li>
             </ul>
         </div>
-        <div class="q2_4 question block" data-bind="visible: bugetarAngajat() === 'false'">
+        <div class="q2_4 question block" data-bind="fadeVisible: bugetarAngajat() === 'false'">
             <h3>Angajatorul tău va transfera sumele aferente contribuțiilor la stat în noul tău salariu brut?</h3>
             <ul>
                 <li>
@@ -140,7 +140,7 @@
         </div>
     </div>
 
-    <div class="quesstion q3" data-bind="visible:  angajat() === 'false'">
+    <div class="quesstion q3" data-bind="fadeVisible:  angajat() === 'false'">
           <div class="q3_1 question">
             <h3>Lucrezi în mediul privat?</h3>
             <ul>
@@ -156,7 +156,7 @@
           </div>
     </div>
 
-  <div class="question q4" data-bind="visible:  angajat() === 'false' && bugetarAngajator() === 'false'">
+  <div class="question q4" data-bind="fadeVisible:  angajat() === 'false' && bugetarAngajator() === 'false'">
     <h3> Ai angajați scutiți de impozitul pe venit?</h3>
     <ul>
       <li>
@@ -174,7 +174,7 @@
     <p>Ne pare rău, nu putem calcula cum vei fi afectat(ă) de Revoluția Fiscală PSD-ALDE.</p>
   </div>
 
-  <div class="question q5" data-bind="visible:  angajat() === 'false' && bugetarAngajator() === 'false' && angajatiScutiti() === 'true'">
+  <div class="question q5" data-bind="fadeVisible:  angajat() === 'false' && bugetarAngajator() === 'false' && angajatiScutiti() === 'true'">
     <h3>Introdu suma aferentă totalului scutirilor de impozit ale angajaților tăi.</h3>
     <input type="number" name="privat_net" id="privat_net" data-bind="value: sumaTotalaScutiti">
     <label for="privat_net">RON</label>
