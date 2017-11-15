@@ -125,11 +125,14 @@
     && bugetarAngajat() === 'true'
     && button1Visible
     ">
-        <p>De la 1 ianuarie 2018 urma să-ți crească salariul net (în mână) cu
-            <span id="sal_net" data-bind="text: result().diferenta">xxx</span>
-            RON, dar Revoluția Fiscală ți-a luat
-            <span id="procent" data-bind="text: result().procent" >x</span>% din această creștere! Revoluționar, nu?</p>
-        <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. *doar procentul va fi postat pe Facebook.</p>
+        <div class="answer-body">    
+            <img src="./static/header.jpg"/>
+            <p>De la 1 ianuarie 2018 urma să-ți crească salariul net (în mână) cu
+                <span id="sal_net" data-bind="text: result().diferenta">xxx</span>
+                RON, dar Revoluția Fiscală ți-a luat
+                <span id="procent" data-bind="text: result().procent" >x</span>% din această creștere! Revoluționar, nu?</p>
+            <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. *doar procentul va fi postat pe Facebook.</p>
+        </div>
     </div>
     <div class="answer-group a2" data-bind="fadeVisible:  angajat() === 'true'
     && bugetarAngajat() === 'false'

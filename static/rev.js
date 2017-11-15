@@ -1,42 +1,4 @@
 $(document).ready(function(){
-var toImage = document.querySelector('.q1.question')
-
-domtoimage.toPng(toImage)
-  .then(function (dataUrl) {
-      var img = new Image();
-      img.src = dataUrl;
-      document.body.appendChild(img);
-  })
-  .catch(function (error) {
-      console.error('oops, something went wrong!', error);
-  });
-
-
-  // $('input:radio').on('change',function(){
-  // 	console.log($(this))
-  //   if ($(this).is(':checked')) {
-  //   	var target = $(this).attr('target');
-  //   	$('.'+target).css('display', 'block')
-  //   	$('.'+target +' .question:not(.hidden)').css('display', 'block')
-  //   }
-  // });
-
-
-  // $('.q2_4').click(function(){
-  //   if ($(this).is(':checked')) {
-  //   	var target = $(this).attr('target');
-  //   	$('.'+target).css('display', 'block')
-  //   }
-  // });
-
-
-
-  // $('button').click(function(){
-  //   	var target = $(this).attr('target');
-  //   	console.log(target)
-  //   	$('.'+target).css('display', 'block')
-  // });
-
   function este_fara_impozit(net){
     complet = net * 1.473053892;
     return complet * 0.6356968215;
@@ -71,7 +33,6 @@ domtoimage.toPng(toImage)
 
   function fara_contrib_fara_impozit(net){
     brut = net / 0.835;
-    console.log("brut " + brut);
     return brut * 0.65;
   }
 
@@ -185,12 +146,16 @@ domtoimage.toPng(toImage)
       }
       this.button1Visible(true);
       this.result(result);
-      console.log('result', result)
+      setTimeout(function(){
+
+      createImage()
+      },300)
+
       return result;
     };
 
     this.calcReducereSalariu = function calcReducereSalariu() {
-      console.log('calcReducereSalariu', this)
+      // console.log('calcReducereSalariu', this)
     }
 
     this.reset = function reset() {
@@ -212,3 +177,19 @@ domtoimage.toPng(toImage)
   };
   ko.applyBindings(new ViewModel());
 })
+
+
+
+function createImage(){
+  var toImage = document.querySelector('.a1.answer')
+
+  domtoimage.toPng(toImage)
+    .then(function (dataUrl) {
+        var img = new Image();
+        img.src = dataUrl;
+        document.body.appendChild(img);
+  })
+  .catch(function (error) {
+      console.error('oops, something went wrong!', error);
+  });
+}
