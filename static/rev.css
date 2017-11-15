@@ -130,8 +130,8 @@ input:not([type]):focus:not([readonly])+label, input[type=text]:not(.browser-def
 }
 
 /*after development*/
-/*
-.container > .question,
+
+/*.container > .question,
 .multiple-questions {
 position: absolute;
 top: 0;
@@ -142,8 +142,12 @@ background: white;
 
 .answer {
 	display: none;
+}*/
+
+
+.footer {
+	display: none;
 }
-*/
 
 input[type="number"] {
 	    font-size: 1.2rem!important;
