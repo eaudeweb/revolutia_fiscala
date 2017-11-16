@@ -1,5 +1,13 @@
 body {
     font-size: 10px;
+      display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-body {
+	flex: 1;
+
 }
 
 .question,
@@ -100,7 +108,11 @@ h3 {
     text-align: center;
     padding: .3rem;
     margin: 1rem 0;
-    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
+}
+
+.q1 {
+	border-top: none;
 }
 
 .question.block {
@@ -252,10 +264,11 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .footer-links {
     display: inline-block;
+    margin: 0;
 }
 
 .footer-links li {
-    line-height: 50px;
+    line-height: 49px;
     margin: 0 1rem;
     display: inline-block;
 }
@@ -267,7 +280,6 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .footer .container {
     border-top: 1px solid #aaa;
-    padding-top: 1rem;
     display: flex;
     height: 50px;
     justify-content: flex-start;
