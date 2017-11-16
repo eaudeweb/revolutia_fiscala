@@ -51,7 +51,7 @@ $(document).ready(function(){
   }
 
   var ViewModel = function() {
-    this.angajat = ko.observable();
+    this.angajat = ko.observable('true');
     this.bugetarAngajat = ko.observable(false);
     this.bugetarAngajator = ko.observable(false);
     this.transfer = ko.observable(false);
