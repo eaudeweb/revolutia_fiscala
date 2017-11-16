@@ -506,3 +506,47 @@ h3 small {
 .btn:focus, .btn-large:focus, .btn-floating:focus {
 	background: #be0e14;
 }
+
+@media(max-width: 600px){
+	.container {
+		    max-width: initial;
+    width: 100%;
+    padding: 0 5px;
+	}
+
+	.question ul li {
+		width: 100%;
+	}
+
+	.answer {
+transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    /* top: 0; */
+    border-radius: 0;
+    padding: 5px;
+    padding-bottom: 1.5rem;
+	}
+
+	.answer .answer-body p:last-of-type {
+		margin-left: -5px;
+		margin-right: -5px;
+	}
+
+	.about.answer {
+		    padding-top: 2rem;
+	}
+
+}
+
+@media (max-width: 321px) {
+
+	.answer {
+    padding-bottom: 2rem;
+	}
+	.btn-primary {
+		    font-size: .8rem;
+    width: 100%;
+	}
+
+}
