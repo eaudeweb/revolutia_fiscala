@@ -26,14 +26,24 @@
 </head>
 
 <body>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+<script> 
+window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '2092169297673189',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v2.11'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+   </script>
 
 
 <div class="header">
@@ -268,7 +278,30 @@
 
 </div>
 
-    <div class="fb-share-button" data-href="http://revolutiafiscala.edw.ro" data-layout="button" data-size="large" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Frevolutiafiscala.edw.ro%2F&amp;src=sdkpreparse">Share</a></div>
+<div style="width: 300px"> <button class="btn btn-primary js-share-facebook"> share </button></div>
+
+
+<script>
+var galleryItem = "testfb.png"
+var BASE_URL = 'http://revolutiafiscala.edw.ro'
+
+$('.js-share-facebook').on('click', function() {
+    FB.ui({
+        method: 'share_open_graph',
+        action_type: 'og.shares',
+        action_properties: JSON.stringify({
+            object : {
+               'og:url': BASE_URL,
+               'og:title': 'Revolutia Fiscala',
+               'og:description': 'just testing',
+               'og:og:image:width': '1200',
+               'og:image:height': '630',
+               'og:image': BASE_URL + '/static/' + galleryItem
+            }
+        })
+    });
+  });
+</script>
 
 <div class="footer">
     <div class="container">
