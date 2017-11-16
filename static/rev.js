@@ -4,10 +4,6 @@ $(document).ready(function(){
     return complet * 0.6356968215;
   }
 
-  // function trebuia_fara_impozit(net){
-  //   brut = net / 0.835 * 1.25;
-  //   return brut * 0.835;
-  // }
   function trebuia(net){
     return net * 1.25;
   }
@@ -16,12 +12,6 @@ $(document).ready(function(){
     complet = net * 1.753635586;
     return complet * 0.5721271394;
   }
-
-  // function trebuia_cu_impozit(net){
-  //   brut = net / 0.7014 * 1.25;
-  //   console.log("brut " + brut);
-  //   return brut * 0.585;
-  // }
 
   function procentaj_pierdere(trebuia, este, net){
     return ((trebuia - este) * 100) / (trebuia - net);
@@ -153,10 +143,6 @@ $(document).ready(function(){
       return result;
     };
 
-    this.calcReducereSalariu = function calcReducereSalariu() {
-      // console.log('calcReducereSalariu', this)
-    }
-
     this.reset = function reset() {
       this.button1Visible(false);
     }
@@ -190,14 +176,11 @@ function createImage(){
         var img = new Image();
         img.src = dataUrl;
         img.classList.add('hiddendiv');
-        
+
         document.body.appendChild(img);
-        
+
         // var hash = generateHash()
         // download(blob, '/static/test'+hash+'.png', 'png')
-
-
-
   })
   .catch(function (error) {
       console.error('oops, something went wrong!', error);
@@ -206,21 +189,20 @@ function createImage(){
 
 
 function generateHash(){
+  var currentdate = new Date().valueOf();
+  var id = generateId(20) + currentdate;
+
     // dec2hex :: Integer -> String
-function dec2hex (dec) {
-  return ('0' + dec.toString(16)).substr(-2)
-}
+  function dec2hex (dec) {
+    return ('0' + dec.toString(16)).substr(-2)
+  }
 
-// generateId :: Integer -> String
-function generateId (len) {
-  var arr = new Uint8Array((len || 40) / 2)
-  window.crypto.getRandomValues(arr)
-  return Array.from(arr, dec2hex).join('')
-}
-var currentdate = new Date().valueOf(); 
+  // generateId :: Integer -> String
+  function generateId (len) {
+    var arr = new Uint8Array((len || 40) / 2)
+    window.crypto.getRandomValues(arr)
+    return Array.from(arr, dec2hex).join('')
+  }
 
-
-var id = generateId(20) + currentdate
-
-return id
+  return id
 }
