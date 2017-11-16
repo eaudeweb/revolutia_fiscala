@@ -70,20 +70,22 @@ $(document).ready(function(){
     this.button1Visible = ko.observable(false);
     this.result = ko.observable({net: null, trebuie: null, este: null, procent: null, contrib: null, diferenta: null});
 
-
     this.calcSalariu = function calcSalariu() {
       var result = {net: null, trebuie: null, este: null, procent: null, contrib: null, diferenta: null};
       result.net = parseInt(this.salariu());
+      this.imageUrl = 'http://revolutiafiscala.edw.ro/static/fb/';
 
       if(this.bugetarAngajat() === 'true') { // bugetar
         if(this.domeniuSelected() === 'true') { // fara impozit
           result.trebuie = trebuia(result.net).toFixed(2);
           result.este = este_fara_impozit(result.net);
           result.procent = procentaj_pierdere(result.trebuie, result.este, result.net).toFixed(2);
+          this.imageUrl += 'bugetar_fara_impozit.png';
         } else {// cu impozit
           result.trebuie = trebuia(result.net).toFixed(2);
           result.este = este_cu_impozit(result.net);
           result.procent = procentaj_pierdere(result.trebuie, result.este, result.net).toFixed(2);
+          this.imageUrl += 'bugetar_cu_impozit.png';
         }
         result.diferenta = result.trebuie - result.net;
       } else { // privat
@@ -95,18 +97,21 @@ $(document).ready(function(){
               // xxx net - este
               result.diferenta = (result.net - result.este).toFixed(2);
               result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
+              this.imageUrl += 'da_fara_impozit.png';
               break;
             case "nu": // a2_1 answer
               result.este = fara_contrib_fara_impozit(result.net);
               // xxx net - este
               result.diferenta = (result.net - result.este).toFixed(2);
               result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
+              this.imageUrl += 'nu_fara_impozit.png';
               break;
             case "idk": // a2_2 answer
               result.este = fara_contrib_fara_impozit(result.net);
               // xxx net - este
               result.diferenta = (result.net - result.este).toFixed(2);
               result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
+              this.imageUrl += 'idk_fara_impozit.png';
               break;
             default:
               break;
@@ -117,18 +122,21 @@ $(document).ready(function(){
               result.este = este_cu_impozit(result.net);
               // xxx  este - net
               result.contrib = -1 * contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
+              this.imageUrl += 'da_cu_impozit.png';
               break;
             case "nu": // a2_1 answer
               result.este = fara_contrib_cu_impozit(result.net);
               // xxx net - este
               result.diferenta = (result.net - result.este).toFixed(2);
               result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
+              this.imageUrl += 'nu_cu_impozit.png';
               break;
             case "idk": // a2_2 answer
               result.este = fara_contrib_cu_impozit(result.net);
               // xxx net - este
               result.diferenta = (result.net - result.este).toFixed(2);
               result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
+              this.imageUrl += 'idk_cu_impozit.png';
               break;
             default:
               break;
@@ -138,9 +146,6 @@ $(document).ready(function(){
       }
       this.button1Visible(true);
       this.result(result);
-      setTimeout(function(){
-       createImage()
-      },300)
 
       return result;
     };
@@ -150,8 +155,7 @@ $(document).ready(function(){
     }
 
     this.shareImageOnFacebook = function shareImageOnFacebook() {
-      var u = 'http://revolutiafiscala.edw.ro/static/testfb2.png';
-      window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u),'sharer','toolbar=0,status=0,width=626,height=436');return false;
+      window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(this.imageUrl),'sharer','toolbar=0,status=0,width=626,height=436');return false;
     }
   };
 
@@ -169,31 +173,6 @@ $(document).ready(function(){
   };
   ko.applyBindings(new ViewModel());
 });
-
-
-
-function createImage(){
-  var result = $('body').find('.answer_visible').clone();
-  var toImage = $('.image-generator')
-  toImage.html(result)
-  toImage = toImage.find('.fb-message')[0]
-
-  domtoimage.toJpeg(toImage, { quality: 1 })
-    .then(function (dataUrl) {
-        var img = new Image();
-        img.src = dataUrl;
-        img.classList.add('hiddendiv');
-
-        document.body.appendChild(img);
-
-        // var hash = generateHash()
-        // download(blob, '/static/test'+hash+'.png', 'png')
-  })
-  .catch(function (error) {
-      console.error('oops, something went wrong!', error);
-  });
-}
-
 
 function generateHash(){
   var currentdate = new Date().valueOf();
