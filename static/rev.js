@@ -139,6 +139,11 @@ $(document).ready(function(){
     this.reset = function reset() {
       this.button1Visible(false);
     }
+
+    this.shareImageOnFacebook = function shareImageOnFacebook() {
+      var u = 'http://revolutiafiscala.edw.ro/static/testfb.png';
+      window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u),'sharer','toolbar=0,status=0,width=626,height=436');return false;
+    }
   };
 
   ko.bindingHandlers.fadeVisible = {
@@ -154,7 +159,7 @@ $(document).ready(function(){
     }
   };
   ko.applyBindings(new ViewModel());
-})
+});
 
 
 

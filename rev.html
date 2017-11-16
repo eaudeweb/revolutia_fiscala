@@ -26,28 +26,10 @@
 </head>
 
 <body>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
 
 <div class="header">
-  <img src="./static/header.jpg" onclick="fbs_click(this)"/>
+  <img src="./static/header.jpg"/>
 </div>
-
-<script>
-    function fbs_click(TheImg) {
-    u=TheImg.src;
-    // t=document.title;
-   t=TheImg.getAttribute('alt');
-   window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;
-}
-</script>
 
 <div class="site-body container">
     <div class="q1 question">
@@ -275,7 +257,8 @@
 
 </div>
 
-    <div class="fb-share-button" data-href="http://revolutiafiscala.edw.ro" data-layout="button" data-size="large" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Frevolutiafiscala.edw.ro%2F&amp;src=sdkpreparse">Share</a></div>
+    <!-- <div class="fb-share-button" data-href="http://revolutiafiscala.edw.ro" data-layout="button" data-size="large" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Frevolutiafiscala.edw.ro%2F&amp;src=sdkpreparse">Share</a></div> -->
+<button data-bind="click: shareImageOnFacebook">Share on Facebook</button>
 
 <div class="footer">
     <div class="container">
