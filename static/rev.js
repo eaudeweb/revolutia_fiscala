@@ -3,7 +3,7 @@ $(document).ready(function(){
 
   var location;
 
-  if (window.location.href == 'http://localhost:8080/rev.html') {
+  if (window.location.href == 'http://localhost:8080/index.html') {
     location = 'http://revolutiafiscala.edw.ro'
   }
   else {
