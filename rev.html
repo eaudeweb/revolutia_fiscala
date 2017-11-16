@@ -70,38 +70,16 @@
                 </li>
             </ul>
         </div>
-        <div class="q2_2 question block">
+        <div class="q2_2 question">
             <h3>Ești scutit de impozit (lucrezi în IT, cercetare și dezvoltare, industria HoReCa sau beneficiezi de reducerea atribuită unei persoane cu dizabilități)?</h3>
             <ul>
                 <li>
-                    <span>
-                        <input type="radio" name="q2_2" id="it" data-bind="checked: domeniuSelected, event:{ change: reset}" value="it">
-                        <label for="it">Lucrez în IT</label>
-                    </span>
+                    <input type="radio" name="q2_2" id="scutit_da" data-bind="checked: domeniuSelected, event:{ change: reset}" value="true">
+                    <label for="scutit_da">Da</label>
                 </li>
                 <li>
-                    <span>
-                        <input type="radio" name="q2_2" id="cercetare" data-bind="checked: domeniuSelected, event:{ change: reset}" value="cercetare">
-                        <label for="cercetare">Lucrez în cercetare și dezvoltare</label>
-                    </span>
-                </li>
-                <li>
-                    <span>
-                        <input type="radio" name="q2_2" id="horeca" data-bind="checked: domeniuSelected, event:{ change: reset}" value="horeca">
-                        <label for="horeca">Lucrez sezonier în industria HoReCa (hoteluri, restaurante, cafenele)</label>
-                    </span>
-                </li>
-                <li>
-                <span>
-                    <input type="radio" name="q2_2" id="handicap" data-bind="checked: domeniuSelected, event:{ change: reset}" value="handicap">
-                    <label for="handicap">Beneficiez de reducerea impozitului din cauza unui handicap</label>
-                </span>
-                </li>
-                <li>
-                    <span>
-                        <input type="radio" name="q2_2" id="nimic" data-bind="checked: domeniuSelected, event:{ change: reset}" value="niciuna">
-                        <label for="nimic">Niciuna din cele de mai sus</label>
-                    </span>
+                    <input type="radio" name="q2_2" id="scutit_nu" data-bind="checked: domeniuSelected, event:{ change: reset}" value="false">
+                    <label for="scutit_nu">Nu</label>
                 </li>
             </ul>
         </div>
@@ -109,22 +87,16 @@
             <h3>Angajatorul tău va transfera sumele aferente contribuțiilor la stat în noul tău salariu brut?</h3>
             <ul>
                 <li>
-                    <span>
                         <input type="radio" name="q2_4" id="da_transfer" data-bind="checked: transfer, event:{ change: reset}" value="da">
                         <label for="da_transfer">Da</label>
-                    </span>
                 </li>
                 <li>
-                    <span>
                         <input type="radio" name="q2_4" id="nu_transfer" data-bind="checked: transfer, event:{ change: reset}" value="nu">
                         <label for="nu_transfer">Nu</label>
-                    </span>
                 </li>
                 <li>
-                    <span>
                         <input type="radio" name="q2_4" id="idk_transfer" data-bind="checked: transfer, event:{ change: reset}" value="idk">
                         <label for="idk_transfer">Nu știu</label>
-                    </span>
                 </li>
             </ul>
         </div>
@@ -171,11 +143,11 @@
         fadeVisible:  angajat() === 'true'
         && bugetarAngajat() === 'false'
         && button1Visible
-        && (transfer() === 'nu' || (transfer() === 'da' && domeniuSelected() !== 'niciuna')),
+        && (transfer() === 'nu' || (transfer() === 'da' && domeniuSelected() === 'true')),
         css: {'answer_visible': angajat() === 'true'
             && bugetarAngajat() === 'false'
             && button1Visible
-            && (transfer() === 'nu' || (transfer() === 'da' && domeniuSelected() !== 'niciuna'))
+            && (transfer() === 'nu' || (transfer() === 'da' && domeniuSelected() === 'true'))
         }
         ">
             <div class="answer-body">
@@ -221,13 +193,13 @@
         && bugetarAngajat() === 'false'
         && button1Visible
         && transfer() === 'da'
-        && domeniuSelected() === 'niciuna',
+        && domeniuSelected() === 'false',
         css: {'answer_visible':
             angajat() === 'true'
             && bugetarAngajat() === 'false'
             && button1Visible
             && transfer() === 'da'
-            && domeniuSelected() === 'niciuna'
+            && domeniuSelected() === 'false'
         }
         ">
             <div class="answer-body">

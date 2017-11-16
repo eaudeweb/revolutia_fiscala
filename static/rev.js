@@ -61,20 +61,13 @@ $(document).ready(function(){
     this.button1Visible = ko.observable(false);
     this.result = ko.observable({net: null, trebuie: null, este: null, procent: null, contrib: null, diferenta: null});
 
-    this.domeniu = [
-      {text: 'Lucrez in IT', value: "it"},
-      {text: 'Lucrez in cercetare și dezvoltare', value: "cercetare"},
-      {text: 'Lucrez in industria HoReCa (hoteluri, restaurante, cafenele)', value: "horeca"},
-      {text: 'Beneficiez de reducerea impozitului din cauza unui handicap', value: "handicap"},
-      {text: 'Niciuna din cele de mai sus', value: "niciuna"}
-    ]
 
     this.calcSalariu = function calcSalariu() {
       var result = {net: null, trebuie: null, este: null, procent: null, contrib: null, diferenta: null};
       result.net = parseInt(this.salariu());
 
       if(this.bugetarAngajat() === 'true') { // bugetar
-        if(isInArray(this.domeniu, this.domeniuSelected())) { // fara impozit
+        if(this.domeniuSelected() === 'true') { // fara impozit
           result.trebuie = trebuia(result.net).toFixed(2);
           result.este = este_fara_impozit(result.net);
           result.procent = procentaj_pierdere(result.trebuie, result.este, result.net).toFixed(2);
@@ -85,7 +78,7 @@ $(document).ready(function(){
         }
         result.diferenta = result.trebuie - result.net;
       } else { // privat
-        if(isInArray(this.domeniu, this.domeniuSelected())) { // fara impozit
+        if(this.domeniuSelected() === 'true') { // fara impozit
 
           switch (this.transfer()) {
             case "da": // a2_1 answer
