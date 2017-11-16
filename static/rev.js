@@ -1,5 +1,20 @@
 $(document).ready(function(){
 
+
+  var location;
+
+  if (window.location.href == 'http://localhost:8080/rev.html') {
+    location = 'http://revolutiafiscala.edw.ro'
+  }
+  else {
+    location = window.location.href
+  }
+
+  $('meta[property="og:url"]').attr('content', location)
+  
+  $('meta[property="og:image"]').attr('content',location+'/static/header.jpg')
+
+
   $('.despre').on('click', function(){
     $('.about.answer').addClass('open');
   })
@@ -73,7 +88,10 @@ $(document).ready(function(){
     this.calcSalariu = function calcSalariu() {
       var result = {net: null, trebuie: null, este: null, procent: null, contrib: null, diferenta: null};
       result.net = parseInt(this.salariu());
-      this.imageUrl = 'http://revolutiafiscala.edw.ro/static/fb/';
+
+
+
+      this.imageUrl =  location + '/static/fb/';
 
       if(this.bugetarAngajat() === 'true') { // bugetar
         if(this.domeniuSelected() === 'true') { // fara impozit
