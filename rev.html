@@ -100,7 +100,7 @@
         </div>
     </div>
     <!-- Start answer a1 -->
-    <div class="answer a1" data-bind="fadeVisible:  angajat() === 'true'
+    <div class="answer a1" style="display: none;" data-bind="fadeVisible:  angajat() === 'true'
     && bugetarAngajat() === 'true'
     && button1Visible ,
     css: {'answer_visible': angajat() === 'true'
@@ -137,7 +137,7 @@
     }
     ">
     <!-- Start answer a2_1 -->
-        <div class="a2_1 answer" data-bind="
+        <div class="a2_1 answer" style="display: none;"  data-bind="
         fadeVisible:  angajat() === 'true'
         && bugetarAngajat() === 'false'
         && button1Visible
@@ -167,7 +167,7 @@
         </div>
         <!-- End answer a2_1 -->
         <!-- Start answer a2_2 -->
-        <div class="a2_2 answer" data-bind="fadeVisible:  angajat() === 'true'
+        <div class="a2_2 answer" style="display: none;"  data-bind="fadeVisible:  angajat() === 'true'
         && bugetarAngajat() === 'false'
         && button1Visible
         && transfer() === 'idk' ,
@@ -196,7 +196,7 @@
         </div>
         <!-- End answer a2_2 -->
         <!-- Start answer a2_3 -->
-        <div class="a2_3 answer" data-bind="fadeVisible:  angajat() === 'true'
+        <div class="a2_3 answer" style="display: none;"  data-bind="fadeVisible:  angajat() === 'true'
         && bugetarAngajat() === 'false'
         && button1Visible
         && transfer() === 'da'
@@ -257,7 +257,7 @@
     </ul>
   </div>
 
-  <div class="a3 answer" data-bind="fadeVisible:  angajat() === 'false'">
+  <div class="a3 answer" style="display: none;"  data-bind="fadeVisible:  angajat() === 'false'">
     <p>Ne pare rău, nu putem calcula cum vei fi afectat(ă) de Revoluția Fiscală PSD-ALDE.</p>
   </div>
 
@@ -271,7 +271,7 @@
   </div>
 
 <!--
-  <div class="a4 answer">
+  <div class="a4 answer" style="display: none;" >
     <p>Datorită Revoluției Fiscale, de la 1 ianuarie 2018 ar trebui să crești cheltuielile aferente salariilor cu <span id="sal_net">xxx</span> RON ca să menții aceleași venituri nete ale angajaților. Revoluționar, nu?</p>
   </div> -->
 

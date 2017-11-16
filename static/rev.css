@@ -88,11 +88,12 @@ h3 {
 
 .question.block ul {
     margin: auto;
+    display: flex;
 }
 
 .question.block li {
     min-width: initial;
-    width: calc(33% - 10px);
+    /*width: calc(33% - 10px);*/
     text-align: center;
     margin: 0 5px;
 }
@@ -294,7 +295,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .answer {
     position: fixed;
     background: white;
-    padding: 1rem;
+    padding: 3rem;
     font-size: 1.2rem;
     left: 50%;
     transform: translateX(-50%);
@@ -304,7 +305,7 @@ input[type="number"]::-webkit-inner-spin-button {
     background-position: 50% 1%;
     text-align: center;
     overflow: hidden;
-    max-width: 510px;
+    max-width: 600px;
     background: white;
     border-top: none;
     box-shadow: 1px 1px 3px #101010;
@@ -314,7 +315,6 @@ input[type="number"]::-webkit-inner-spin-button {
     color: white;
     text-shadow: 1px 1px 1px black;
     border-radius: 1rem;
-        padding-bottom: 1.5em;
 }
 
 .answer .answer-body p:last-of-type {
@@ -325,8 +325,8 @@ input[type="number"]::-webkit-inner-spin-button {
     /* border-radius: 3px; */
     padding: 3px;
     color: #444;
-    margin-left: -15px;
-    margin-right: -15px;
+    margin-left: -3rem;
+    margin-right: -3rem;
 }
 
 .answer span {
