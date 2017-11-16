@@ -60,7 +60,7 @@
             </ul>
         </div>
         <div class="q2_2 question">
-            <h3>Ești scutit(ă) de impozit? (lucrezi în IT, în cercetare și dezvoltare, în industria HoReCa sau beneficiezi de reducerea atribuită unei persoane cu dizabilități)</h3>
+            <h3>Ești scutit(ă) de impozit? <small>lucrezi în IT, în cercetare și dezvoltare, în industria HoReCa sau beneficiezi de reducerea atribuită unei persoane cu dizabilități</small></h3>
             <ul>
                 <li>
                     <input type="radio" name="q2_2" id="scutit_da" data-bind="checked: domeniuSelected, event:{ change: reset}" value="true">
@@ -90,7 +90,7 @@
             </ul>
         </div>
         <div class="q2_3 question">
-            <h3>Introdu salariul tău net (în mână). Nu-ți fă griji, nu vom păstra nimic din datele introduse.</h3>
+            <h3>Introdu salariul tău net (în mână). <small>Nu-ți fă griji, nu vom păstra nimic din datele introduse.</small></h3>
             <div class="input-field">
                 <input type="number" name="angajat_net" id="angajat_net" data-bind="value: salariu, event:{ change: reset}">
                 <label for="angajat_net">RON</label>
@@ -113,14 +113,14 @@
                 <span id="sal_net" data-bind="text: result().diferenta">xxx</span>
                 RON, dar Revoluția Fiscală ți-a luat
                 <span id="procent" data-bind="text: result().procent" >x</span>% din această creștere! Revoluționar, nu?</p>
-            <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. *doar procentul va fi postat pe Facebook.</p>
+            <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. <small>*doar procentul va fi postat pe Facebook.</small></p>
         </div>
         <div class="fb-message">
             <img src="./static/header.jpg"/>
             <p>De la 1 ianuarie 2018 urma să-mi crească salariul cu 25% dar Revoluția Fiscală mi-a luat <span id="procent" data-bind="text: result().procent" >x</span>% din această creștere. Mulțumesc, PSD! Asta da revoluție!</p>
             <p>Află și tu cum vei fi afectat de Revoluția Fiscală PSD-ALDE la www.revolutiafiscala.ro</p>
         </div>
-        <button data-bind="click: shareImageOnFacebook">Share on Facebook</button>
+        <button data-bind="click: shareImageOnFacebook">Distribuie</button>
     </div>
     <!-- End answer a1 -->
 
@@ -157,7 +157,7 @@
                 <p>De la 1 ianuarie 2018 salariul meu va scădea cu <span id="procent" data-bind="text: result().contrib">x</span>%. Mulțumesc, PSD! Asta da revoluție!</p>
                 <p>Află și tu cum vei fi afectat de Revoluția Fiscală PSD-ALDE la www.revolutiafiscala.ro</p>
             </div>
-            <button data-bind="click: shareImageOnFacebook">Share on Facebook</button>
+            <button data-bind="click: shareImageOnFacebook">Distribuie</button>
         </div>
         <!-- End answer a2_1 -->
         <!-- Start answer a2_2 -->
@@ -183,7 +183,7 @@
                 <p>De la 1 ianuarie 2018 salariul meu va scădea cu până la <span id="procent" data-bind="text: result().contrib">x</span>%. Mulțumesc, PSD! Asta da revoluție!</p>
                 <p>Află și tu cum vei fi afectat de Revoluția Fiscală PSD-ALDE la www.revolutiafiscala.ro</p>
             </div>
-            <button data-bind="click: shareImageOnFacebook">Share on Facebook</button>
+            <button data-bind="click: shareImageOnFacebook">Distribuie</button>
         </div>
         <!-- End answer a2_2 -->
         <!-- Start answer a2_3 -->
@@ -210,7 +210,7 @@
                 <p>De la 1 ianuarie 2018 salariul meu va crește cu <span id="sal_net" data-bind="text: result().contrib">x</span>%. Mulțumesc, PSD! Asta da revoluție!</p>
                 <p>Află și tu cum vei fi afectat de Revoluția Fiscală PSD-ALDE la www.revolutiafiscala.ro</p>
             </div>
-            <button data-bind="click: shareImageOnFacebook">Share on Facebook</button>
+            <button data-bind="click: shareImageOnFacebook">Distribuie</button>
         </div>
         <!-- End answer a2_3 -->
     </div>
@@ -269,7 +269,7 @@
 </div>
 
     <!-- <div class="fb-share-button" data-href="http://revolutiafiscala.edw.ro" data-layout="button" data-size="large" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Frevolutiafiscala.edw.ro%2F&amp;src=sdkpreparse">Share</a></div> -->
-<!-- <button data-bind="click: shareImageOnFacebook, fadeVisible:  button1Visible">Share on Facebook</button> -->
+<!-- <button data-bind="click: shareImageOnFacebook, fadeVisible:  button1Visible">Distribuie</button> -->
 
 <div class="footer">
     <div class="container">
