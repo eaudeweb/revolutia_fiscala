@@ -108,6 +108,9 @@
         && button1Visible
     }
     ">
+        <div class="close" data-bind="event:{ click: reset}">
+            ✖
+        </div>
         <div class="answer-body">
             <p>De la 1 ianuarie 2018 urma să-ți crească salariul net (în mână) cu
                 <span id="sal_net" data-bind="text: result().diferenta">xxx</span>
@@ -145,6 +148,9 @@
             && (transfer() === 'nu' || (transfer() === 'da' && domeniuSelected() === 'true'))
         }
         ">
+          <div class="close" data-bind="event:{ click: reset}">
+            ✖
+        </div>
             <div class="answer-body">
                 <p>Datorită Revoluției Fiscale, de la 1 ianuarie 2018 vei primi cu
                     <span id="sal_net" data-bind="text: result().diferenta">xxx</span> RON mai puțin la salariu! Revoluționar, nu?</p>
@@ -171,6 +177,9 @@
             && transfer() === 'idk'
         }
         ">
+          <div class="close" data-bind="event:{ click: reset}">
+            ✖
+        </div>
             <div class="answer-body">
                 <p>Datorită Revoluției Fiscale, de la 1 ianuarie 2018 vei primi cu
                     <span id="sal_net" data-bind="text: result().diferenta">xxx</span> RON mai puțin în mână dacă angajatorul nu îți va transfera sumele aferente contribuțiilor către stat! Revoluționar, nu?</p>
@@ -200,6 +209,9 @@
             && domeniuSelected() === 'false'
         }
         ">
+          <div class="close" data-bind="event:{ click: reset}">
+            ✖
+        </div>
             <div class="answer-body">
                 <p>Felicitări, de la 1 ianuarie 2018 vei primi
                     <span id="sal_net" data-bind="text: result().contrib">x</span>% în plus pe lună! Revoluționar, nu?</p>
@@ -284,9 +296,9 @@
 </div>
 
 <div class="about answer">
-<div class="close">
-    X
-</div>
+  <div class="close">
+            ✖
+  </div>
    Un proiect al Uniunii Salvați România pentru informarea și alertarea cetățenilor cu privire la politicile fiscale promovate de coaliția de guvernare
 </div>
 

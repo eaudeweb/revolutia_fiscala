@@ -317,6 +317,18 @@ input[type="number"]::-webkit-inner-spin-button {
         padding-bottom: 1.5em;
 }
 
+.answer .answer-body p:last-of-type {
+    font-size: .9rem;
+    background: white;
+    color: black;
+    text-shadow: none;
+    /* border-radius: 3px; */
+    padding: 3px;
+    color: #444;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
 .answer span {
     font-weight: bold;
     font-size: 1.3rem;
@@ -401,6 +413,11 @@ input[type="number"]::-webkit-inner-spin-button {
     padding-bottom: 0;
 }
 
+.answer .close {
+	color: #b60404;
+	text-shadow: none;
+}
+
 .about.answer {
 	background: rgb(0, 170, 231);
 	    font-weight: bold;
@@ -410,26 +427,34 @@ input[type="number"]::-webkit-inner-spin-button {
 	    transition: all 300ms;
 }
 
+.about.answer .close {
+    color: #00aae8;
+}
+
 .about.answer.open {
 	z-index: 100;
 	opacity: 1;
 }
 
 .close {
-	position: absolute;
+    position: absolute;
     right: 10px;
     top: 5px;
-    font-size: .6rem;
+    font-size: 1.3rem;
     font-weight: bold;
     cursor: pointer;
-    border: 1px solid white;
-    padding: 3px;
-    line-height: 1;
+    /* border: 1px solid white; */
+    /* padding: 3px; */
+    /* line-height: 1; */
     border-radius: 1rem;
     background: white;
     height: 15px;
     width: 15px;
     color: #00aae8;
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 h3 small {
@@ -472,6 +497,12 @@ h3 small {
     position: absolute;
     bottom: 0;
     left: 50%;
+    color: white;
     transform: translateX(-50%);
 }
 
+
+
+.btn:focus, .btn-large:focus, .btn-floating:focus {
+	background: #be0e14;
+}
