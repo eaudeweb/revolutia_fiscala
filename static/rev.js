@@ -1,4 +1,13 @@
 $(document).ready(function(){
+
+  $('.despre').on('click', function(){
+    $('.about.answer').addClass('open');
+  })
+
+  $('.about .close').on('click',function(){
+    $(this).parent().removeClass('open')
+  })
+
   function este_fara_impozit(net){
     complet = net * 1.473053892;
     return complet * 0.6356968215;
