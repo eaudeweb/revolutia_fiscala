@@ -99,11 +99,26 @@
             target="a1">Calculează noul meu salariu revoluționar</button>
         </div>
     </div>
+
+    <!-- Start validation -->
+    <div class="answer" style="display: none;" data-bind="fadeVisible:  invalidForm && button1Visible,
+    css: {'answer_visible': invalidForm && button1Visible}">
+        <div class="close" data-bind="event:{ click: reset}">
+            ✖
+        </div>
+        <div class="answer-body">
+            <p>Va rugam sa completati toate campurile!
+        </div>
+    </div>
+    <!-- End validation -->
+
     <!-- Start answer a1 -->
     <div class="answer a1" style="display: none;" data-bind="fadeVisible:  angajat() === 'true'
     && bugetarAngajat() === 'true'
-    && button1Visible ,
+    && !invalidForm()
+    && button1Visible,
     css: {'answer_visible': angajat() === 'true'
+        && !invalidForm()
         && bugetarAngajat() === 'true'
         && button1Visible
     }
@@ -130,8 +145,10 @@
 
     <div class="answer-group a2" data-bind="fadeVisible:  angajat() === 'true'
     && bugetarAngajat() === 'false'
+    && !invalidForm()
     && button1Visible,
     css: {'answer_visible': angajat() === 'true'
+        && !invalidForm()
         && bugetarAngajat() === 'false'
         && button1Visible
     }
@@ -139,10 +156,12 @@
     <!-- Start answer a2_1 -->
         <div class="a2_1 answer" style="display: none;"  data-bind="
         fadeVisible:  angajat() === 'true'
+        && !invalidForm()
         && bugetarAngajat() === 'false'
         && button1Visible
         && (transfer() === 'nu' || (transfer() === 'da' && domeniuSelected() === 'true')),
         css: {'answer_visible': angajat() === 'true'
+            && !invalidForm()
             && bugetarAngajat() === 'false'
             && button1Visible
             && (transfer() === 'nu' || (transfer() === 'da' && domeniuSelected() === 'true'))
@@ -169,9 +188,11 @@
         <!-- Start answer a2_2 -->
         <div class="a2_2 answer" style="display: none;"  data-bind="fadeVisible:  angajat() === 'true'
         && bugetarAngajat() === 'false'
+        && !invalidForm()
         && button1Visible
-        && transfer() === 'idk' ,
+        && transfer() === 'idk',
         css: {'answer_visible':  angajat() === 'true'
+            && !invalidForm()
             && bugetarAngajat() === 'false'
             && button1Visible
             && transfer() === 'idk'
@@ -198,11 +219,13 @@
         <!-- Start answer a2_3 -->
         <div class="a2_3 answer" style="display: none;"  data-bind="fadeVisible:  angajat() === 'true'
         && bugetarAngajat() === 'false'
+        && !invalidForm()
         && button1Visible
         && transfer() === 'da'
         && domeniuSelected() === 'false',
         css: {'answer_visible':
             angajat() === 'true'
+            && !invalidForm()
             && bugetarAngajat() === 'false'
             && button1Visible
             && transfer() === 'da'

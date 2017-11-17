@@ -11,7 +11,7 @@ $(document).ready(function(){
   }
 
   $('meta[property="og:url"]').attr('content', location)
-  
+
   $('meta[property="og:image"]').attr('content',location+'/static/header.jpg')
 
 
@@ -67,13 +67,13 @@ $(document).ready(function(){
 
   var ViewModel = function() {
     this.angajat = ko.observable('true');
-    this.bugetarAngajat = ko.observable(false);
-    this.bugetarAngajator = ko.observable(false);
-    this.transfer = ko.observable(false);
+    this.bugetarAngajat = ko.observable();
+    this.bugetarAngajator = ko.observable();
+    this.transfer = ko.observable();
     this.salariu = ko.observable();
     this.salariuCalculat = ko.observable();
     this.reducere = ko.observable();
-    this.angajatiScutiti = ko.observable(false);
+    this.angajatiScutiti = ko.observable();
     this.sumaTotalaScutiti = ko.observable();
     this.sumaTotalaScutitiCalc = ko.observable();
     this.domeniuSelected = ko.observable();
@@ -84,12 +84,26 @@ $(document).ready(function(){
     this.contrib = ko.observable();
     this.button1Visible = ko.observable(false);
     this.result = ko.observable({net: null, trebuie: null, este: null, procent: null, contrib: null, diferenta: null});
+    this.invalidForm = ko.observable(false);
+
+    this.validForm = function validForm() {
+      return (this.bugetarAngajat() !== undefined)
+              && (this.salariu() !== undefined)
+              && (this.domeniuSelected() !== undefined)
+    }
 
     this.calcSalariu = function calcSalariu() {
       var result = {net: null, trebuie: null, este: null, procent: null, contrib: null, diferenta: null};
       result.net = parseInt(this.salariu());
 
-
+      if(!this.validForm()) {
+        this.invalidForm(true);
+        this.button1Visible(true);
+        return;
+      } else {
+        this.invalidForm(false);
+        this.button1Visible(false);
+      }
 
       this.imageUrl =  location + '/static/fb/';
 
