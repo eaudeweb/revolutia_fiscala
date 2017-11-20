@@ -92,6 +92,11 @@ $(document).ready(function(){
               && (this.domeniuSelected() !== undefined)
     }
 
+    this.showNextQuestion = function showNextQuestion(value) {
+      // debugger;
+      return (this[value]() !== undefined);
+    }
+
     this.calcSalariu = function calcSalariu() {
       var result = {net: null, trebuie: null, este: null, procent: null, contrib: null, diferenta: null};
       result.net = parseInt(this.salariu());

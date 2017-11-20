@@ -59,7 +59,7 @@
                 </li>
             </ul>
         </div>
-        <div class="q2_2 question">
+        <div class="q2_2 question" data-bind="fadeVisible: showNextQuestion('bugetarAngajat')">
             <h3>Ești scutit(ă) de impozit? <small>lucrezi în IT, în cercetare și dezvoltare, în industria HoReCa sau beneficiezi de reducerea atribuită unei persoane cu dizabilități</small></h3>
             <ul>
                 <li>
@@ -72,7 +72,7 @@
                 </li>
             </ul>
         </div>
-        <div class="q2_4 question block" data-bind="fadeVisible: bugetarAngajat() === 'false'">
+        <div class="q2_4 question block" data-bind="fadeVisible: bugetarAngajat() === 'false' && showNextQuestion('domeniuSelected')">
             <h3>Angajatorul tău va transfera sumele aferente contribuțiilor la stat în noul tău salariu brut?</h3>
             <ul>
                 <li>
@@ -89,7 +89,9 @@
                 </li>
             </ul>
         </div>
-        <div class="q2_3 question">
+        <div class="q2_3 question"
+        data-bind="visible: bugetarAngajat() === 'true' && showNextQuestion('domeniuSelected')
+                    || (bugetarAngajat() === 'false' && showNextQuestion('transfer'))">
             <h3>Introdu salariul tău net (în mână). <small>Nu-ți fă griji, nu vom păstra nimic din datele introduse.</small></h3>
             <div class="input-field">
                 <input type="number" name="angajat_net" id="angajat_net" data-bind="value: salariu, event:{ change: reset}">
