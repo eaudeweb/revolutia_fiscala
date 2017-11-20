@@ -112,12 +112,12 @@ $(document).ready(function(){
           result.trebuie = trebuia(result.net).toFixed(2);
           result.este = este_fara_impozit(result.net);
           result.procent = procentaj_pierdere(result.trebuie, result.este, result.net).toFixed(2);
-          this.imageUrl += 'bugetar_fara_impozit_9494200103.png';
+          this.imageUrl += 'bugetar_fara_impozit_9494200103b.png';
         } else {// cu impozit
           result.trebuie = trebuia(result.net).toFixed(2);
           result.este = este_cu_impozit(result.net);
           result.procent = procentaj_pierdere(result.trebuie, result.este, result.net).toFixed(2);
-          this.imageUrl += 'bugetar_cu_impozit_1499524214.png';
+          this.imageUrl += 'bugetar_cu_impozit_1499524214a.png';
         }
         result.diferenta = result.trebuie - result.net;
       } else { // privat
@@ -129,21 +129,21 @@ $(document).ready(function(){
               // xxx net - este
               result.diferenta = (result.net - result.este).toFixed(2);
               result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
-              this.imageUrl += 'da_fara_impozit_6711773674.png';
+              this.imageUrl += 'da_fara_impozit_6711773674d.png';
               break;
             case "nu": // a2_1 answer
               result.este = fara_contrib_fara_impozit(result.net);
               // xxx net - este
               result.diferenta = (result.net - result.este).toFixed(2);
               result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
-              this.imageUrl += 'nu_fara_impozit_9507080543.png';
+              this.imageUrl += 'nu_fara_impozit_9507080543h.png';
               break;
             case "idk": // a2_2 answer
               result.este = fara_contrib_fara_impozit(result.net);
               // xxx net - este
               result.diferenta = (result.net - result.este).toFixed(2);
               result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
-              this.imageUrl += 'idk_fara_impozit_5046536364.png';
+              this.imageUrl += 'idk_fara_impozit_5046536364f.png';
               break;
             default:
               break;
@@ -154,21 +154,21 @@ $(document).ready(function(){
               result.este = este_cu_impozit(result.net);
               // xxx  este - net
               result.contrib = -1 * contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
-              this.imageUrl += 'da_cu_impozit_2313258562.png';
+              this.imageUrl += 'da_cu_impozit_2313258562c.png';
               break;
             case "nu": // a2_1 answer
               result.este = fara_contrib_cu_impozit(result.net);
               // xxx net - este
               result.diferenta = (result.net - result.este).toFixed(2);
               result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
-              this.imageUrl += 'nu_cu_impozit_9841434880.png';
+              this.imageUrl += 'nu_cu_impozit_9841434880g.png';
               break;
             case "idk": // a2_2 answer
               result.este = fara_contrib_cu_impozit(result.net);
               // xxx net - este
               result.diferenta = (result.net - result.este).toFixed(2);
               result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
-              this.imageUrl += 'idk_cu_impozit_9254782264.png';
+              this.imageUrl += 'idk_cu_impozit_9254782264e.png';
               break;
             default:
               break;
