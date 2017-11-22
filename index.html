@@ -96,7 +96,7 @@
             <h3>Introdu salariul tău net (în mână). <small>Nu-ți fă griji, nu vom păstra nimic din datele introduse.</small></h3>
             <div class="input-field">
                 <input type="number" name="angajat_net" id="angajat_net" data-bind="value: salariu, event:{ change: reset}">
-                <label for="angajat_net">RON</label>
+                <label for="angajat_net">lei</label>
             </div>
             <button type="button" class="btn btn-primary btn_angajat"  data-bind="click: calcSalariu, event:{ change: reset}"
             target="a1">Calculează noul meu salariu revoluționar</button>
@@ -132,7 +132,7 @@
         <div class="answer-body">
             <p>De la 1 ianuarie 2018 urma să-ți crească salariul net (în mână) cu
                 <span id="sal_net" data-bind="text: result().diferenta">xxx</span>
-                RON, dar Revoluția Fiscală ți-a luat
+                lei, dar Revoluția Fiscală ți-a luat
                 <span id="procent" data-bind="text: result().procent" >x</span>% din această creștere! Revoluționar, nu?</p>
             <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. <small>*doar procentul va fi postat pe Facebook</small></p>
         </div>
@@ -175,7 +175,7 @@
         </div>
             <div class="answer-body">
                 <p>Datorită Revoluției Fiscale, de la 1 ianuarie 2018 vei primi cu
-                    <span id="sal_net" data-bind="text: result().diferenta">xxx</span> RON mai puțin la salariu! Revoluționar, nu?</p>
+                    <span id="sal_net" data-bind="text: result().diferenta">xxx</span> lei mai puțin la salariu! Revoluționar, nu?</p>
                 <p>Asta înseamnă o reducere de
                     <span id="procent" data-bind="text: result().contrib">x</span>% a salariului tău net (în mână)!</p>
                 <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. <small>*doar procentul va fi postat pe Facebook</small></p>
@@ -206,7 +206,7 @@
         </div>
             <div class="answer-body">
                 <p>Datorită Revoluției Fiscale, de la 1 ianuarie 2018 vei primi cu
-                    <span id="sal_net" data-bind="text: result().diferenta">xxx</span> RON mai puțin în mână dacă angajatorul nu îți va transfera sumele aferente contribuțiilor către stat! Revoluționar, nu?</p>
+                    <span id="sal_net" data-bind="text: result().diferenta">xxx</span> lei mai puțin în mână dacă angajatorul nu îți va transfera sumele aferente contribuțiilor către stat! Revoluționar, nu?</p>
                 <p>Asta înseamnă o reducere de
                     <span id="procent" data-bind="text: result().contrib">x</span>% a salariului tău net (în mână)!</p>
                 <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. <small>*doar procentul va fi postat pe Facebook</small></p>
@@ -291,14 +291,14 @@
     <h3>Introdu suma aferentă totalului scutirilor de impozit ale angajaților tăi.</h3>
         <div class="input-field">
         <input type="number" name="privat_net" id="privat_net">
-        <label for="privat_net">RON</label>
+        <label for="privat_net">lei</label>
     </div>
     <button type="button" class="btn btn-primary" target="a4">Calculează noile mele cheltuieli revoluționare</button>
   </div>
 
 <!--
   <div class="a4 answer" style="display: none;" >
-    <p>Datorită Revoluției Fiscale, de la 1 ianuarie 2018 ar trebui să crești cheltuielile aferente salariilor cu <span id="sal_net">xxx</span> RON ca să menții aceleași venituri nete ale angajaților. Revoluționar, nu?</p>
+    <p>Datorită Revoluției Fiscale, de la 1 ianuarie 2018 ar trebui să crești cheltuielile aferente salariilor cu <span id="sal_net">xxx</span> lei ca să menții aceleași venituri nete ale angajaților. Revoluționar, nu?</p>
   </div> -->
 
 
