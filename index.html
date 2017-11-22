@@ -60,7 +60,7 @@
                 </li>
             </ul>
         </div>
-        <div class="q2_2 question" data-bind="fadeVisible: showNextQuestion('bugetarAngajat')">
+        <div class="q2_2 question" data-bind="fadeVisible: showNextQuestion('bugetarAngajat') && (bugetarAngajat() === 'false') ">
             <h3>Ești scutit(ă) de impozit? <small>lucrezi în IT, în cercetare și dezvoltare, în industria HoReCa sau beneficiezi de reducerea atribuită unei persoane cu dizabilități</small></h3>
             <ul>
                 <li>
@@ -91,7 +91,7 @@
             </ul>
         </div>
         <div class="q2_3 question"
-        data-bind="visible: bugetarAngajat() === 'true' && showNextQuestion('domeniuSelected')
+        data-bind="visible: bugetarAngajat() === 'true'
                     || (bugetarAngajat() === 'false' && showNextQuestion('transfer'))">
             <h3>Introdu salariul tău net (în mână). <small>Nu-ți fă griji, nu vom păstra nimic din datele introduse.</small></h3>
             <div class="input-field">

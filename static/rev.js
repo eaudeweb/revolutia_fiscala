@@ -87,9 +87,7 @@ $(document).ready(function(){
     this.invalidForm = ko.observable(false);
 
     this.validForm = function validForm() {
-      return (this.bugetarAngajat() !== undefined)
-              && (this.salariu() !== undefined)
-              && (this.domeniuSelected() !== undefined)
+      return (this.salariu() !== undefined)
     }
 
     this.showNextQuestion = function showNextQuestion(value) {
@@ -113,19 +111,11 @@ $(document).ready(function(){
       this.imageUrl =  location + '/static/fb/';
 
       if(this.bugetarAngajat() === 'true') { // bugetar
-        if(this.domeniuSelected() === 'true') { // fara impozit
-          result.trebuie = trebuia(result.net).toFixed(2);
-          result.este = este_fara_impozit(result.net);
-          result.procent = procentaj_pierdere(result.trebuie, result.este, result.net).toFixed(2);
-          result.procent = result.procent.toString().replace('.', ',');
-          this.imageUrl += 'bugetar_fara_impozit_9494200103b.png';
-        } else {// cu impozit
-          result.trebuie = trebuia(result.net).toFixed(2);
-          result.este = este_cu_impozit(result.net);
-          result.procent = procentaj_pierdere(result.trebuie, result.este, result.net).toFixed(2);
-          result.procent = result.procent.toString().replace('.', ',');
-          this.imageUrl += 'bugetar_cu_impozit_1499524214a.png';
-        }
+        result.trebuie = trebuia(result.net).toFixed(2);
+        result.este = este_cu_impozit(result.net);
+        result.procent = procentaj_pierdere(result.trebuie, result.este, result.net).toFixed(2);
+        result.procent = result.procent.toString().replace('.', ',');
+        this.imageUrl += 'bugetar_cu_impozit_1499524214a.png';
         result.diferenta = (result.trebuie - result.net).toString().replace('.', ',');
       } else { // privat
         if(this.domeniuSelected() === 'true') { // fara impozit
