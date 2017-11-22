@@ -98,12 +98,12 @@ $(document).ready(function() {
             var result = { net: null, trebuie: null, este: null, procent: null, contrib: null, diferenta: null, diferenta_reala: null };
             result.net = parseInt(this.salariu());
             if (!this.validForm()) {
-                this.invalidForm(true);
-                this.button1Visible(true);
-                return;
+              this.invalidForm(true);
+              this.button1Visible(true);
+              return;
             } else {
-                this.invalidForm(false);
-                this.button1Visible(false);
+              this.invalidForm(false);
+              this.button1Visible(false);
             }
 
             console.log('form', this.invalidForm())
@@ -113,29 +113,32 @@ $(document).ready(function() {
             this.imageUrl = location + '/static/fb/';
 
             if (this.bugetarAngajat() === 'true') { // bugetar
-                result.trebuie = trebuia(result.net).toFixed(2);
-                result.este = este_cu_impozit(result.net);
-                result.procent = procentaj_pierdere(result.trebuie, result.este, result.net).toFixed(2);
-                result.procent = result.procent.toString().replace('.', ',');
-                this.imageUrl += 'bugetar_cu_impozit_1499524214a.png';
-                result.diferenta = (result.trebuie - result.net).toString().replace('.', ',');
-                result.diferenta_reala = (result.este - result.net).toFixed(2).toString().replace('.', ',');
+              result.trebuie = trebuia(result.net).toFixed(2);
+              result.este = este_cu_impozit(result.net);
+              result.procent = procentaj_pierdere(result.trebuie, result.este, result.net).toFixed(2);
+              result.procent = result.procent.toString().replace('.', ',');
+              this.imageUrl += 'bugetar_cu_impozit_1499524214a.png';
+              result.diferenta = (result.trebuie - result.net).toString().replace('.', ',');
+              result.diferenta_reala = (result.este - result.net).toFixed(2).toString().replace('.', ',');
             } else { // privat
-                if (this.domeniuSelected() === 'true') { // fara impozit
-                    result.este = fara_contrib_fara_impozit(result.net);
-                    // xxx net - este
-                    result.diferenta = (result.net - result.este).toFixed(2).toString().replace('.', ',');
-                    result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
-                    result.contrib = result.contrib.toString().replace('.', ',');
-                    this.imageUrl += 'nu_fara_impozit_9507080543h.png';
-                } else { // cu impozit
-                    result.este = fara_contrib_cu_impozit(result.net);
-                    // xxx net - este
-                    result.diferenta = (result.net - result.este).toFixed(2).toString().replace('.', ',');
-                    result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
-                    result.contrib = result.contrib.toString().replace('.', ',');
-                    this.imageUrl += 'nu_cu_impozit_9841434880g.png';
-                }
+              if (this.domeniuSelected() === 'true') { // fara impozit
+
+                result.este = fara_contrib_fara_impozit(result.net);
+                // xxx net - este
+                result.diferenta = (result.net - result.este).toFixed(2).toString().replace('.', ',');
+                result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
+                result.contrib = result.contrib.toString().replace('.', ',');
+                result.diferenta_reala = (result.net - este_fara_impozit(result.net)).toFixed(2).toString().replace('.', ',');
+                this.imageUrl += 'nu_fara_impozit_9507080543h.png';
+
+              } else { // cu impozit
+                result.este = fara_contrib_cu_impozit(result.net);
+                // xxx net - este
+                result.diferenta = (result.net - result.este).toFixed(2).toString().replace('.', ',');
+                result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
+                result.contrib = result.contrib.toString().replace('.', ',');
+                this.imageUrl += 'nu_cu_impozit_9841434880g.png';
+              }
             }
             this.button1Visible(true);
             this.result(result);
