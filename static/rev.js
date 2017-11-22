@@ -96,7 +96,7 @@ $(document).ready(function(){
     }
 
     this.calcSalariu = function calcSalariu() {
-      var result = {net: null, trebuie: null, este: null, procent: null, contrib: null, diferenta: null};
+      var result = {net: null, trebuie: null, este: null, procent: null, contrib: null, diferenta: null, diferenta_reala: null};
       result.net = parseInt(this.salariu());
 
       if(!this.validForm()) {
@@ -117,6 +117,7 @@ $(document).ready(function(){
         result.procent = result.procent.toString().replace('.', ',');
         this.imageUrl += 'bugetar_cu_impozit_1499524214a.png';
         result.diferenta = (result.trebuie - result.net).toString().replace('.', ',');
+        result.diferenta_reala = (result.este - result.net).toFixed(2).toString().replace('.', ',');
       } else { // privat
         if(this.domeniuSelected() === 'true') { // fara impozit
 
