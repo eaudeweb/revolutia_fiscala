@@ -105,8 +105,8 @@
     </div>
 
     <!-- Start validation -->
-    <div class="answer" style="display: none;" data-bind="fadeVisible:  invalidForm && button1Visible,
-    css: {'answer_visible': invalidForm && button1Visible}">
+    <div class="answer" style="display: none;" data-bind="fadeVisible:  invalidForm() && button1Visible(),
+    css: {'answer_visible': invalidForm() && button1Visible()}">
         <div class="close" data-bind="event:{ click: reset}">
             ✖
         </div>
@@ -120,11 +120,11 @@
     <div class="answer a1" style="display: none;" data-bind="fadeVisible:  angajat() === 'true'
     && bugetarAngajat() === 'true'
     && !invalidForm()
-    && button1Visible,
+    && button1Visible(),
     css: {'answer_visible': angajat() === 'true'
         && !invalidForm()
         && bugetarAngajat() === 'true'
-        && button1Visible
+        && button1Visible()
     }
     ">
         <div class="close" data-bind="event:{ click: reset}">
@@ -156,11 +156,11 @@
     <div class="answer-group a2" data-bind="fadeVisible:  angajat() === 'true'
     && bugetarAngajat() === 'false'
     && !invalidForm()
-    && button1Visible,
+    && button1Visible(),
     css: {'answer_visible': angajat() === 'true'
         && !invalidForm()
         && bugetarAngajat() === 'false'
-        && button1Visible
+        && button1Visible()
     }
     ">
     <!-- Start answer a2_1 -->
@@ -168,12 +168,12 @@
         fadeVisible:  angajat() === 'true'
         && !invalidForm()
         && bugetarAngajat() === 'false'
-        && button1Visible
+        && button1Visible()
         && (transfer() === 'nu' && domeniuSelected() === 'true'),
         css: {'answer_visible': angajat() === 'true'
             && !invalidForm()
             && bugetarAngajat() === 'false'
-            && button1Visible
+            && button1Visible()
             && (transfer() === 'nu' && domeniuSelected() === 'true')
         }
         ">
@@ -211,12 +211,12 @@
         fadeVisible:  angajat() === 'true'
         && !invalidForm()
         && bugetarAngajat() === 'false'
-        && button1Visible
+        && button1Visible()
         && (transfer() === 'nu' && domeniuSelected() === 'false'),
         css: {'answer_visible': angajat() === 'true'
             && !invalidForm()
             && bugetarAngajat() === 'false'
-            && button1Visible
+            && button1Visible()
             && (transfer() === 'nu' && domeniuSelected() === 'false')
         }
         ">
@@ -321,6 +321,6 @@
    Un proiect al Uniunii Salvați România pentru informarea și alertarea cetățenilor cu privire la politicile fiscale promovate de coaliția de guvernare
 </div>
 
-
+<div class="overlay" data-bind="fadeVisible: overlay(), click: reset()"></div>
 <script type="text/javascript" src="./static/rev.js"></script>
 </body>

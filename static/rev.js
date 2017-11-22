@@ -84,6 +84,7 @@ $(document).ready(function() {
         this.button1Visible = ko.observable(false);
         this.result = ko.observable({ net: null, trebuie: null, este: null, procent: null, contrib: null, diferenta: null });
         this.invalidForm = ko.observable(false);
+        this.overlay = ko.observable(false);
 
         this.validForm = function validForm() {
             return (this.salariu() !== undefined)
@@ -106,9 +107,10 @@ $(document).ready(function() {
               this.button1Visible(false);
             }
 
-            console.log('form', this.invalidForm())
+            console.log(this.invalidForm())
             console.log(this.button1Visible())
 
+            this.overlay(true)
 
             this.imageUrl = location + '/static/fb/';
 
@@ -150,6 +152,7 @@ $(document).ready(function() {
         };
 
         this.reset = function reset() {
+            this.overlay(false)
             this.button1Visible(false);
         }
 
