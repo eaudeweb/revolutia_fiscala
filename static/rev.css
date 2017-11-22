@@ -289,6 +289,7 @@ input[type="number"]::-webkit-inner-spin-button {
     height: 50px;
     justify-content: center;
     align-items: center;
+    padding: 2rem 0;
 }
 
 
