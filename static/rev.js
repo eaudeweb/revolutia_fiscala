@@ -117,14 +117,16 @@ $(document).ready(function(){
           result.trebuie = trebuia(result.net).toFixed(2);
           result.este = este_fara_impozit(result.net);
           result.procent = procentaj_pierdere(result.trebuie, result.este, result.net).toFixed(2);
+          result.procent = result.procent.toString().replace('.', ',');
           this.imageUrl += 'bugetar_fara_impozit_9494200103b.png';
         } else {// cu impozit
           result.trebuie = trebuia(result.net).toFixed(2);
           result.este = este_cu_impozit(result.net);
           result.procent = procentaj_pierdere(result.trebuie, result.este, result.net).toFixed(2);
+          result.procent = result.procent.toString().replace('.', ',');
           this.imageUrl += 'bugetar_cu_impozit_1499524214a.png';
         }
-        result.diferenta = result.trebuie - result.net;
+        result.diferenta = (result.trebuie - result.net).toString().replace('.', ',');
       } else { // privat
         if(this.domeniuSelected() === 'true') { // fara impozit
 
@@ -132,22 +134,25 @@ $(document).ready(function(){
             case "da": // a2_1 answer
               result.este = este_fara_impozit(result.net);
               // xxx net - este
-              result.diferenta = (result.net - result.este).toFixed(2);
+              result.diferenta = (result.net - result.este).toFixed(2).toString().replace('.', ',');
               result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
+              result.contrib = result.contrib.toString().replace('.', ',');
               this.imageUrl += 'da_fara_impozit_6711773674d.png';
               break;
             case "nu": // a2_1 answer
               result.este = fara_contrib_fara_impozit(result.net);
               // xxx net - este
-              result.diferenta = (result.net - result.este).toFixed(2);
+              result.diferenta = (result.net - result.este).toFixed(2).toString().replace('.', ',');
               result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
+              result.contrib = result.contrib.toString().replace('.', ',');
               this.imageUrl += 'nu_fara_impozit_9507080543h.png';
               break;
             case "idk": // a2_2 answer
               result.este = fara_contrib_fara_impozit(result.net);
               // xxx net - este
-              result.diferenta = (result.net - result.este).toFixed(2);
+              result.diferenta = (result.net - result.este).toFixed(2).toString().replace('.', ',');
               result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
+              result.contrib = result.contrib.toString().replace('.', ',');
               this.imageUrl += 'idk_fara_impozit_5046536364f.png';
               break;
             default:
@@ -159,20 +164,23 @@ $(document).ready(function(){
               result.este = este_cu_impozit(result.net);
               // xxx  este - net
               result.contrib = -1 * contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
+              result.contrib = result.contrib.toString().replace('.', ',');
               this.imageUrl += 'da_cu_impozit_2313258562c.png';
               break;
             case "nu": // a2_1 answer
               result.este = fara_contrib_cu_impozit(result.net);
               // xxx net - este
-              result.diferenta = (result.net - result.este).toFixed(2);
+              result.diferenta = (result.net - result.este).toFixed(2).toString().replace('.', ',');
               result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
+              result.contrib = result.contrib.toString().replace('.', ',');
               this.imageUrl += 'nu_cu_impozit_9841434880g.png';
               break;
             case "idk": // a2_2 answer
               result.este = fara_contrib_cu_impozit(result.net);
               // xxx net - este
-              result.diferenta = (result.net - result.este).toFixed(2);
+              result.diferenta = (result.net - result.este).toFixed(2).toString().replace('.', ',');
               result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
+              result.contrib = result.contrib.toString().replace('.', ',');
               this.imageUrl += 'idk_cu_impozit_9254782264e.png';
               break;
             default:
@@ -183,6 +191,9 @@ $(document).ready(function(){
       }
       this.button1Visible(true);
       this.result(result);
+
+      // result.diferenta = result.diferenta.toString().replace('.', ',');
+      // console.log(result.diferenta);
 
       return result;
     };
