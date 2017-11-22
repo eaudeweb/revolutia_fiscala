@@ -305,7 +305,7 @@ input[type="number"]::-webkit-inner-spin-button {
     background-position: 50% 1%;
     text-align: center;
     overflow: hidden;
-    max-width: 600px;
+    max-width: 800px;
     background: white;
     border-top: none;
     box-shadow: 1px 1px 3px #101010;
@@ -315,6 +315,7 @@ input[type="number"]::-webkit-inner-spin-button {
     color: white;
     text-shadow: 1px 1px 1px black;
     border-radius: 1rem;
+    padding-bottom: 4rem;
 }
 
 .answer .answer-body p:last-of-type {
@@ -492,13 +493,18 @@ h3 small {
 }
 
 .answer small {
-	    font-weight: 300;
+    font-weight: 300;
     display: block;
     position: absolute;
-    bottom: 0;
+    bottom: .5rem;
     left: 50%;
     color: white;
     transform: translateX(-50%);
+    width: 100%;
+}
+
+.answer small span {
+    font-size: inherit;
 }
 
 
