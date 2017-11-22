@@ -273,7 +273,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .footer-links li {
-    line-height: 49px;
+    // line-height: 49px;
     margin: 0 1rem;
     display: inline-block;
 }
