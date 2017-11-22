@@ -3,12 +3,14 @@ $(document).ready(function(){
 
   var location;
 
-  if (window.location.href == 'http://localhost:8080/index.html') {
+  if (window.location.href == 'http://localhost:8080/') {
     location = 'http://revolutiafiscala.edw.ro'
   }
   else {
     location = window.location.href
   }
+
+  console.log(location)
 
   $('meta[property="og:url"]').attr('content', location)
 
