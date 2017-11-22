@@ -315,37 +315,18 @@ input[type="number"]::-webkit-inner-spin-button {
     color: white;
     text-shadow: 1px 1px 1px black;
     border-radius: 1rem;
-    padding-bottom: 0;
 }
-
-.answer .answer-body p:first-of-type {
-    margin-left: -3rem;
-    margin-right: -3rem;
-    padding: 0 2rem;
-    margin-top: 8rem;
-    background: rgba(0,0,0,0.5);
-    padding-bottom: 5rem;
-    margin-bottom: 0;
-    padding-top: .5rem;
-}
-
 
 .answer .answer-body p:last-of-type {
-        font-size: .9rem;
-        background: white;
-        color: black;
-        text-shadow: none;
-        /* border-radius: 3px; */
-        padding: 3px;
-        color: white;
-        margin-left: -3rem;
-        margin-right: -3rem;
-        position: absolute;
-        top: -1rem;
-        left: 0;
-        right: 0;
-        background: rgba(0,0,0,0.5);
-        font-weight: 600;
+    font-size: .9rem;
+    background: white;
+    color: black;
+    text-shadow: none;
+    /* border-radius: 3px; */
+    padding: 3px;
+    color: #444;
+    margin-left: -3rem;
+    margin-right: -3rem;
 }
 
 .answer span {
@@ -356,13 +337,13 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .answer img {
+    display: none;
     position: absolute;
     height: 100%;
     left: 0;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    z-index: -1;
 }
 
 .answer-body {
@@ -370,8 +351,8 @@ input[type="number"]::-webkit-inner-spin-button {
     margin: auto;
 }
 
-.answer .fb-message p {
-display: none;
+.answer .fb-message {
+    display: none;
 }
 
 
@@ -435,8 +416,6 @@ display: none;
 .answer .close {
 	color: #b60404;
 	text-shadow: none;
-    z-index: 1;
-    background: transparent;
 }
 
 .about.answer {
@@ -488,18 +467,14 @@ h3 small {
 
 
 .answer button {
-    background-color: #3B5998;
-    border-color: #3967b3;
-    border-radius: 8px;
-    color: white;
-    border-style: initial;
-    padding-left: 20px;
-    position: relative;
-    position: absolute;
-    border: ;
-    bottom: 2.5rem;
-    left: 50%;
-    transform: translateX(-50%);
+	background-color: #3B5998;
+	border-color: #3967b3;
+	border-radius: 8px;
+	color: white;
+	    border-style: initial;
+	    padding-left: 20px;
+	    position: relative;
+
 }
 
 .answer button:before {
@@ -517,25 +492,13 @@ h3 small {
 }
 
 .answer small {
-    font-weight: 300;
+	    font-weight: 300;
     display: block;
-    bottom: 0;
-    color: white;
-    bottom: 0;
-    border-bottom-right-radius: 1rem;
-    font-weight: bold;
-    left: ;
-    text-align: right;
-    padding-right: .5rem;
     position: absolute;
-    left: 0;
-    padding-left: 4rem;
-    background: rgba(0,0,0,0.5);
-    height: 19px;
-    right: 0;
-    text-align: center;
-    padding: 0;
-    border-radius: 0;
+    bottom: 0;
+    left: 50%;
+    color: white;
+    transform: translateX(-50%);
 }
 
 
