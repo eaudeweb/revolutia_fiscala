@@ -150,7 +150,7 @@ h3 {
 
 
 [type="radio"]+label:after {
-    content: '✓';
+    content: '';
     text-align: center;
     line-height: 1.5;
     font-size: .6rem;
