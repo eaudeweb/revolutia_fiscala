@@ -546,12 +546,17 @@ transform: translateY(-50%);
 		    padding-top: 2rem;
 	}
 
+    .a2_1.answer {
+        padding-bottom: 5rem;
+    } 
+
 }
+
 
 @media (max-width: 321px) {
 
 	.answer {
-    padding-bottom: 2rem;
+    padding-bottom: 3rem;
 	}
 	.btn-primary {
 		    font-size: .8rem;

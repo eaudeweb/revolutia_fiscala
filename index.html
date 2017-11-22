@@ -8,116 +8,94 @@
     <meta name="description" content="Revoluția Fiscală">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
-      <!-- Compiled and minified CSS -->
+    <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link rel="shortcut icon" type="image/x-icon" href="./static/favicon.ico"/>
-
+    <link rel="shortcut icon" type="image/x-icon" href="./static/favicon.ico" />
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <link rel="stylesheet" type="text/css" href="./static/rev.css">
     <script type="text/javascript" src="./static/dom-to-image.min.js"></script>
-
     <!-- <script type="text/javascript" src="./static/download.js"></script> -->
-    <meta property="og:url"           content="" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Revoluția Fiscală" />
-    <meta property="og:description"   content="Află și tu cum vei fi afectat de Revoluția Fiscală PSD-ALDE la www.revolutiafiscala.ro" />
-    <meta property="og:image"         content="" />
-
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Revoluția Fiscală" />
+    <meta property="og:description" content="Află și tu cum vei fi afectat de Revoluția Fiscală PSD-ALDE la www.revolutiafiscala.ro" />
+    <meta property="og:image" content="" />
 </head>
 
 <body>
-
-<div class="header">
-  <img src="./static/header.jpg"/>
-</div>
-
-<div class="site-body container">
-    <!-- <div class="q1 question">
-        <h3>Ești angajat sau angajator?</h3>
-        <ul>
-            <li>
-                <input type="radio" target="q2" name="angajat" id="angajat" value="true" data-bind="checked: angajat, event:{ change: reset}">
-                <label for="angajat">Angajat</label>
-            </li>
-            <li>
-                <input type="radio" target="q3" name="angajat" id="angajator" value="false" data-bind="checked: angajat, event:{ change: reset}">
-                <label for="angajator">Angajator</label>
-            </li>
-        </ul>
-    </div> -->
-    <div class="q2 multiple-questions mquestions-1" data-bind="visible: angajat() === 'true'">
-        <div class="q2_1 question">
-            <h3>Ești bugetar(ă) sau lucrezi în mediul privat?</h3>
-            <ul>
-                <li>
-                    <input type="radio" name="q2_1" id="bugetar" value='true' data-bind="checked: bugetarAngajat, event:{ change: reset}">
-                    <label for="bugetar">Sunt bugetar(ă)</label>
-                </li>
-                <li>
-                    <input type="radio" target="q2_4" name="q2_1" value='false' id="privat" data-bind="checked: bugetarAngajat, event:{ change: reset}">
-                    <label for="privat">Lucrez în mediul privat</label>
-                </li>
-            </ul>
-        </div>
-        <div class="q2_2 question" style="display: none;" data-bind="fadeVisible: showNextQuestion('bugetarAngajat') && (bugetarAngajat() === 'false') ">
-            <h3>Ești scutit(ă) de impozit? <small>lucrezi în IT, în cercetare și dezvoltare, în industria HoReCa sau beneficiezi de reducerea atribuită unei persoane cu dizabilități</small></h3>
-            <ul>
-                <li>
-                    <input type="radio" name="q2_2" id="scutit_da" data-bind="checked: domeniuSelected, event:{ change: reset}" value="true">
-                    <label for="scutit_da">Da</label>
-                </li>
-                <li>
-                    <input type="radio" name="q2_2" id="scutit_nu" data-bind="checked: domeniuSelected, event:{ change: reset}" value="false">
-                    <label for="scutit_nu">Nu</label>
-                </li>
-            </ul>
-        </div>
-        <div class="q2_4 question block" style="display: none;">
-        <!-- <div class="q2_4 question block" data-bind="fadeVisible: bugetarAngajat() === 'false' && showNextQuestion('domeniuSelected')"> -->
-            <h3>Angajatorul tău va transfera sumele aferente contribuțiilor la stat în noul tău salariu brut?</h3>
-            <ul>
-                <li>
+    <div class="header">
+        <img src="./static/header.jpg" />
+    </div>
+    <div class="site-body container">
+        <div class="q2 multiple-questions mquestions-1" data-bind="visible: angajat() === 'true'">
+            <div class="q2_1 question">
+                <h3>Ești bugetar(ă) sau lucrezi în mediul privat?</h3>
+                <ul>
+                    <li>
+                        <input type="radio" name="q2_1" id="bugetar" value='true' data-bind="checked: bugetarAngajat, event:{ change: reset}">
+                        <label for="bugetar">Sunt bugetar(ă)</label>
+                    </li>
+                    <li>
+                        <input type="radio" target="q2_4" name="q2_1" value='false' id="privat" data-bind="checked: bugetarAngajat, event:{ change: reset}">
+                        <label for="privat">Lucrez în mediul privat</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="q2_2 question" style="display: none;" data-bind="fadeVisible: showNextQuestion('bugetarAngajat') && (bugetarAngajat() === 'false') ">
+                <h3>Ești scutit(ă) de impozit? <small>lucrezi în IT, în cercetare și dezvoltare, în industria HoReCa sau beneficiezi de reducerea atribuită unei persoane cu dizabilități</small></h3>
+                <ul>
+                    <li>
+                        <input type="radio" name="q2_2" id="scutit_da" data-bind="checked: domeniuSelected, event:{ change: reset}" value="true">
+                        <label for="scutit_da">Da</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="q2_2" id="scutit_nu" data-bind="checked: domeniuSelected, event:{ change: reset}" value="false">
+                        <label for="scutit_nu">Nu</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="q2_4 question block" style="display: none;">
+                <!-- <div class="q2_4 question block" data-bind="fadeVisible: bugetarAngajat() === 'false' && showNextQuestion('domeniuSelected')"> -->
+                <h3>Angajatorul tău va transfera sumele aferente contribuțiilor la stat în noul tău salariu brut?</h3>
+                <ul>
+                    <li>
                         <input type="radio" name="q2_4" id="da_transfer" data-bind="checked: transfer, event:{ change: reset}" value="da">
                         <label for="da_transfer">Da</label>
-                </li>
-                <li>
+                    </li>
+                    <li>
                         <input type="radio" name="q2_4" id="nu_transfer" data-bind="checked: transfer, event:{ change: reset}" value="nu">
                         <label for="nu_transfer">Nu</label>
-                </li>
-                <li>
+                    </li>
+                    <li>
                         <input type="radio" name="q2_4" id="idk_transfer" data-bind="checked: transfer, event:{ change: reset}" value="idk">
                         <label for="idk_transfer">Nu știu</label>
-                </li>
-            </ul>
-        </div>
-        <div style="display: none;" class="q2_3 question"
-        data-bind="visible: bugetarAngajat() === 'true'
-                    ||  bugetarAngajat() === 'false' && showNextQuestion('domeniuSelected')">
-            <h3>Introdu salariul tău net (în mână). <small>Nu-ți fă griji, nu vom păstra nimic din datele introduse.</small></h3>
-            <div class="input-field">
-                <input type="number" name="angajat_net" id="angajat_net" data-bind="value: salariu">
-                <label for="angajat_net">lei</label>
+                    </li>
+                </ul>
             </div>
-            <button type="button" class="btn btn-primary btn_angajat"  data-bind="click: calcSalariu, event:{ change: reset}"
-            target="a1">Calculează noul meu salariu revoluționar</button>
+            <div style="display: none;" class="q2_3 question" data-bind="visible: bugetarAngajat() === 'true'
+                    ||  bugetarAngajat() === 'false' && showNextQuestion('domeniuSelected')">
+                <h3>Introdu salariul tău net (în mână). <small>Nu-ți fă griji, nu vom păstra nimic din datele introduse.</small></h3>
+                <div class="input-field">
+                    <input type="number" name="angajat_net" id="angajat_net" data-bind="value: salariu">
+                    <label for="angajat_net">lei</label>
+                </div>
+                <button type="button" class="btn btn-primary btn_angajat" data-bind="click: calcSalariu, event:{ change: reset}" target="a1">Calculează noul meu salariu revoluționar</button>
+            </div>
         </div>
-    </div>
-
-    <!-- Start validation -->
-    <div class="answer" style="display: none;" data-bind="fadeVisible:  invalidForm() && button1Visible(),
+        <!-- Start validation -->
+        <div class="answer" style="display: none;" data-bind="fadeVisible:  invalidForm() && button1Visible(),
     css: {'answer_visible': invalidForm() && button1Visible()}">
-        <div class="close" data-bind="event:{ click: reset}">
-            ✖
+            <div class="close" data-bind="event:{ click: reset}">
+                ✖
+            </div>
+            <div class="answer-body">
+                <p>Va rugam sa completati toate campurile!
+            </div>
         </div>
-        <div class="answer-body">
-            <p>Va rugam sa completati toate campurile!
-        </div>
-    </div>
-    <!-- End validation -->
-
-    <!-- Start answer a1 -->
-    <div class="answer a1" style="display: none;" data-bind="fadeVisible:  angajat() === 'true'
+        <!-- End validation -->
+        <!-- Start answer a1 -->
+        <div class="answer a1" style="display: none;" data-bind="fadeVisible:  angajat() === 'true'
     && bugetarAngajat() === 'true'
     && !invalidForm()
     && button1Visible(),
@@ -127,32 +105,30 @@
         && button1Visible()
     }
     ">
-        <div class="close" data-bind="event:{ click: reset}">
-            ✖
+            <div class="close" data-bind="event:{ click: reset}">
+                ✖
+            </div>
+            <div class="answer-body">
+                <p>
+                    De la 1 ianuarie 2018 urma să-ți crească salariul în mână cu <span id="sal_net" data-bind="text: result().diferenta">xxx</span> lei conform Legii salarizării unitare.
+                </p>
+                <p>
+                    După Revoluția Fiscală, salariul îți va crește cu doar <span id="sal_treb" data-bind="text: result().diferenta_reala">xxx</span> lei.
+                </p>
+                <p>
+                    Ți-a fost tăiată <span id="procent" data-bind="text: result().procent">x</span>% din creșterea de salariu! Revoluționar, nu?
+                </p>
+                <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. <small>*pe Facebook vei posta doar procentele, nu și salariul tău.</small></p>
+            </div>
+            <div class="fb-message">
+                <img src="./static/header.jpg" />
+                <p>De la 1 ianuarie 2018 urma să-mi crească salariul cu 25% dar Revoluția Fiscală mi-a luat <span id="procent" data-bind="text: result().procent">x</span>% din această creștere. Mulțumesc, PSD! Asta da revoluție!</p>
+                <p>Află și tu cum vei fi afectat de Revoluția Fiscală PSD-ALDE la www.revolutiafiscala.ro</p>
+            </div>
+            <button data-bind="click: shareImageOnFacebook">Distribuie</button>
         </div>
-        <div class="answer-body">
-            <p>
-                De la 1 ianuarie 2018 urma să-ți crească salariul în mână cu <span id="sal_net" data-bind="text: result().diferenta">xxx</span> lei conform Legii salarizării unitare.
-            </p>
-            <p>
-                După Revoluția Fiscală, salariul îți va crește cu doar <span id="sal_treb" data-bind="text: result().diferenta_reala">xxx</span> lei.
-            </p>
-            <p>
-                Ți-a fost tăiată <span id="procent" data-bind="text: result().procent" >x</span>% din creșterea de salariu! Revoluționar, nu?
-            </p>
-            <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. <small>*pe Facebook vei posta doar procentele, nu și salariul tău.</small></p>
-        </div>
-        <div class="fb-message">
-            <img src="./static/header.jpg"/>
-            <p>De la 1 ianuarie 2018 urma să-mi crească salariul cu 25% dar Revoluția Fiscală mi-a luat <span id="procent" data-bind="text: result().procent" >x</span>% din această creștere. Mulțumesc, PSD! Asta da revoluție!</p>
-            <p>Află și tu cum vei fi afectat de Revoluția Fiscală PSD-ALDE la www.revolutiafiscala.ro</p>
-        </div>
-        <button data-bind="click: shareImageOnFacebook">Distribuie</button>
-    </div>
-    <!-- End answer a1 -->
-
-
-    <div class="answer-group a2" data-bind="fadeVisible:  angajat() === 'true'
+        <!-- End answer a1 -->
+        <div class="answer-group a2" data-bind="fadeVisible:  angajat() === 'true'
     && bugetarAngajat() === 'false'
     && !invalidForm()
     && button1Visible(),
@@ -162,8 +138,8 @@
         && button1Visible()
     }
     ">
-    <!-- Start answer a2_1 //fara impozit-->
-        <div class="a2_1 answer" style="display: none;"  data-bind="
+            <!-- Start answer a2_1 //fara impozit-->
+            <div class="a2_1 answer" style="display: none;" data-bind="
         fadeVisible:  angajat() === 'true'
         && !invalidForm()
         && bugetarAngajat() === 'false'
@@ -176,35 +152,34 @@
             && (transfer() === 'nu' && domeniuSelected() === 'true')
         }
         ">
-          <div class="close" data-bind="event:{ click: reset}">
-            ✖
-        </div>
-            <div class="answer-body">
-                <p>
-                    De la 1 ianuarie 2018 îți va scădea salariul în mână cu <span id="sal_net" data-bind="text: result().diferenta">xxx</span> lei* din cauza transferului de contribuții!
-                </p>
-                <p>
-                    Asta înseamnă o reducere de <span id="procent" data-bind="text: result().contrib">x</span>% a salariului tău!
-                </p>
-                <p>
-                    Revoluția Fiscală îți taie salariul și te forțează la renegocieri cu angajatorul**. Revoluționar, nu?
-                </p>
-
-                <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. <small>
+                <div class="close" data-bind="event:{ click: reset}">
+                    ✖
+                </div>
+                <div class="answer-body">
+                    <p>
+                        De la 1 ianuarie 2018 îți va scădea salariul în mână cu <span id="sal_net" data-bind="text: result().diferenta">xxx</span> lei* din cauza transferului de contribuții!
+                    </p>
+                    <p>
+                        Asta înseamnă o reducere de <span id="procent" data-bind="text: result().contrib">x</span>% a salariului tău!
+                    </p>
+                    <p>
+                        Revoluția Fiscală îți taie salariul și te forțează la renegocieri cu angajatorul**. Revoluționar, nu?
+                    </p>
+                    <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. <small>
                    *dacă angajatorul tău nu îți va crește brutul pentru a compensa transferul
                    <br> **chiar dacă angajatorul rămâne la același cost pentru tine, salariul îți va scădea cu <span id="sal_net" data-bind="text: result().diferenta_reala">xxx</span> lei<br>
                    ***pe Facebook vei posta doar procentele, nu și salariul tău</small></p>
+                </div>
+                <div class="fb-message">
+                    <img src="./static/header.jpg" />
+                    <p>De la 1 ianuarie 2018 salariul meu va scădea cu <span id="procent" data-bind="text: result().contrib">x</span>%. Mulțumesc, PSD! Asta da revoluție!</p>
+                    <p>Află și tu cum vei fi afectat de Revoluția Fiscală PSD-ALDE la www.revolutiafiscala.ro</p>
+                </div>
+                <button data-bind="click: shareImageOnFacebook">Distribuie</button>
             </div>
-            <div class="fb-message">
-                <img src="./static/header.jpg"/>
-                <p>De la 1 ianuarie 2018 salariul meu va scădea cu <span id="procent" data-bind="text: result().contrib">x</span>%. Mulțumesc, PSD! Asta da revoluție!</p>
-                <p>Află și tu cum vei fi afectat de Revoluția Fiscală PSD-ALDE la www.revolutiafiscala.ro</p>
-            </div>
-            <button data-bind="click: shareImageOnFacebook">Distribuie</button>
-        </div>
-        <!-- End answer a2_1 -->
-        <!-- Start answer a2_2 cu impozit-->
-        <div class="a2_2 answer" style="display: none;"  data-bind="
+            <!-- End answer a2_1 -->
+            <!-- Start answer a2_2 cu impozit-->
+            <div class="a2_2 answer" style="display: none;" data-bind="
         fadeVisible:  angajat() === 'true'
         && !invalidForm()
         && bugetarAngajat() === 'false'
@@ -217,112 +192,51 @@
             && (transfer() === 'nu' && domeniuSelected() === 'false')
         }
         ">
-          <div class="close" data-bind="event:{ click: reset}">
-            ✖
-        </div>
-            <div class="answer-body">
-                <p>
-                    De la 1 ianuarie 2018 îți va scădea salariul în mână cu <span id="sal_net" data-bind="text: result().diferenta">xxx</span> lei* din cauza transferului de contribuții!
-                </p>
-                <p>
-                    Asta înseamnă o reducere de <span id="procent" data-bind="text: result().contrib">x</span>% a salariului tău!
-                </p>
-                <p>
-                    Revoluția Fiscală îți taie salariul și te forțează la renegocieri cu angajatorul. Revoluționar, nu?
-                </p>
-                
-                <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. <small>     
+                <div class="close" data-bind="event:{ click: reset}">
+                    ✖
+                </div>
+                <div class="answer-body">
+                    <p>
+                        De la 1 ianuarie 2018 îți va scădea salariul în mână cu <span id="sal_net" data-bind="text: result().diferenta">xxx</span> lei* din cauza transferului de contribuții!
+                    </p>
+                    <p>
+                        Asta înseamnă o reducere de <span id="procent" data-bind="text: result().contrib">x</span>% a salariului tău!
+                    </p>
+                    <p>
+                        Revoluția Fiscală îți taie salariul și te forțează la renegocieri cu angajatorul. Revoluționar, nu?
+                    </p>
+                    <p>Spune-le și prietenilor tăi cum te afectează Revoluția Fiscală PSD-ALDE. <small>     
                     *dacă angajatorul tău nu îți va crește brutul pentru a compensa transferul
                     <br>**pe Facebook vei posta doar procentele, nu și salariul tău
                 </small>
-                </p>
+                    </p>
+                </div>
+                <div class="fb-message">
+                    <img src="./static/header.jpg" />
+                    <p>De la 1 ianuarie 2018 salariul meu va scădea cu până la <span id="procent" data-bind="text: result().contrib">x</span>%. Mulțumesc, PSD! Asta da revoluție!</p>
+                    <p>Află și tu cum vei fi afectat de Revoluția Fiscală PSD-ALDE la www.revolutiafiscala.ro</p>
+                </div>
+                <button data-bind="click: shareImageOnFacebook">Distribuie</button>
             </div>
-            <div class="fb-message">
-                <img src="./static/header.jpg"/>
-                <p>De la 1 ianuarie 2018 salariul meu va scădea cu până la <span id="procent" data-bind="text: result().contrib">x</span>%. Mulțumesc, PSD! Asta da revoluție!</p>
-                <p>Află și tu cum vei fi afectat de Revoluția Fiscală PSD-ALDE la www.revolutiafiscala.ro</p>
-            </div>
-            <button data-bind="click: shareImageOnFacebook">Distribuie</button>
+            <!-- End answer a2_2 -->
         </div>
-        <!-- End answer a2_2 -->
     </div>
-<!-- 
-    <div class="question q3" style="display: none">
-        <div class="q3_1 question">
-        <h3>Lucrezi în mediul privat?</h3>
-        <ul>
-            <li>
-                <input type="radio" target="q4" name="q3_1" value="false" id="patron_da" data-bind="checked: bugetarAngajator">
-                <label for="patron_da">Da</label>
-            </li>
-            <li>
-            <input type="radio" target="a3" name="q3_1" value="true" id="patron_nu" data-bind="checked: bugetarAngajator">
-            <label for="patron_nu">Nu</label>
-            </li>
-        </ul>
+    <div class="footer">
+        <div class="container">
+            <ul class="footer-links">
+                <!-- <li><a style="cursor:pointer" class="despre">Despre</a></li> -->
+                <li><img style="cursor:pointer; width: 43px;" class="despre" title=" Un proiect al Uniunii Salvați România pentru informarea și alertarea cetățenilor cu privire la politicile fiscale promovate de coaliția de guvernare" src="./static/usr.png" /></li>
+            </ul>
         </div>
-    </div> -->
-<!-- 
-  <div class="question q4" data-bind="fadeVisible:  angajat() === 'false' && bugetarAngajator() === 'false'">
-    <h3> Ai angajați scutiți de impozitul pe venit?</h3>
-    <ul>
-      <li>
-        <input type="radio" target="q5" name="q4" id="scutiti_da" value="true" id="patron_da" data-bind="checked: angajatiScutiti">
-        <label for="scutiti_da">Da</label>
-      </li>
-      <li>
-        <input type="radio" target="a3" name="q4" id="scutiti_nu" value="false" id="patron_da" data-bind="checked: angajatiScutiti">
-        <label for="scutiti_nu">Nu</label>
-      </li>
-    </ul>
-  </div>
- -->
-<!--   <div class="a3 answer" style="display: none;"  data-bind="fadeVisible:  angajat() === 'false'">
-    <p>Ne pare rău, nu putem calcula cum vei fi afectat(ă) de Revoluția Fiscală PSD-ALDE.</p>
-  </div> -->
-<!-- 
-  <div class="question q5" data-bind="fadeVisible:  angajat() === 'false' && bugetarAngajator() === 'false' && angajatiScutiti() === 'true'">
-    <h3>Introdu suma aferentă totalului scutirilor de impozit ale angajaților tăi.</h3>
-        <div class="input-field">
-        <input type="number" name="privat_net" id="privat_net">
-        <label for="privat_net">lei</label>
     </div>
-    <button type="button" class="btn btn-primary" target="a4">Calculează noile mele cheltuieli revoluționare</button>
-  </div> -->
-
-<!--
-  <div class="a4 answer" style="display: none;" >
-    <p>Datorită Revoluției Fiscale, de la 1 ianuarie 2018 ar trebui să crești cheltuielile aferente salariilor cu <span id="sal_net">xxx</span> lei ca să menții aceleași venituri nete ale angajaților. Revoluționar, nu?</p>
-  </div> -->
-
-
-
-
-</div>
-
-    <!-- <div class="fb-share-button" data-href="http://revolutiafiscala.edw.ro" data-layout="button" data-size="large" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Frevolutiafiscala.edw.ro%2F&amp;src=sdkpreparse">Share</a></div> -->
-<!-- <button data-bind="click: shareImageOnFacebook, fadeVisible:  button1Visible">Distribuie</button> -->
-
-<div class="footer">
-    <div class="container">
-        <ul class="footer-links">
-            <!-- <li><a style="cursor:pointer" class="despre">Despre</a></li> -->
-            <li><img style="cursor:pointer; width: 43px;" class="despre" title=" Un proiect al Uniunii Salvați România pentru informarea și alertarea cetățenilor cu privire la politicile fiscale promovate de coaliția de guvernare" src="./static/usr.png" /></li>
-        </ul>
+    <div class="image-generator">
     </div>
-</div>
-
-<div class="image-generator">
-
-</div>
-
-<div class="about answer">
-  <div class="close">
+    <div class="about answer">
+        <div class="close">
             ✖
-  </div>
-   Un proiect al Uniunii Salvați România pentru informarea și alertarea cetățenilor cu privire la politicile fiscale promovate de coaliția de guvernare
-</div>
-
-<div  style="display: none;" class="overlay" data-bind="fadeVisible: overlay(), click: reset()"></div>
-<script type="text/javascript" src="./static/rev.js"></script>
+        </div>
+        Un proiect al Uniunii Salvați România pentru informarea și alertarea cetățenilor cu privire la politicile fiscale promovate de coaliția de guvernare
+    </div>
+    <div style="display: none;" class="overlay" data-bind="fadeVisible: overlay(), click: reset()"></div>
+    <script type="text/javascript" src="./static/rev.js"></script>
 </body>
