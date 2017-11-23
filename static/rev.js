@@ -11,7 +11,7 @@ $(document).ready(function() {
 
     $('meta[property="og:url"]').attr('content', location)
 
-    $('meta[property="og:image"]').attr('content', location + '/static/header.jpg')
+    $('meta[property="og:image"]').attr('content', location + '/static/fb.jpg')
 
 
     $('.despre').on('click', function() {
