@@ -317,11 +317,11 @@ input[type="number"]::-webkit-inner-spin-button {
     text-shadow: 1px 1px 1px black;
     border-radius: 1rem;
     padding-bottom: 4rem;
-    padding-top: 2rem;
+    padding-top: 0;
 z-index: 10;
 }
 
-.answer .answer-body p:last-of-type {
+.answer .answer-body p.white_line {
     font-size: .9rem;
     background: white;
     color: black;
@@ -331,6 +331,19 @@ z-index: 10;
     color: #444;
     margin-left: -3rem;
     margin-right: -3rem;
+}
+
+@media (max-width:600px){
+.answer .answer-body p.white_line {
+
+        margin-left: -1rem;
+    margin-right: -1rem;
+}
+}
+
+.answer .answer-body p:last-of-type {
+        font-size: .7rem;
+    font-style: italic;
 }
 
 .answer span {
