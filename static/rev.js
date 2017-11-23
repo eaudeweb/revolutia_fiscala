@@ -1,13 +1,23 @@
 $(document).ready(function() {
 
-
-    // var location;
-
-    // if (window.location.href == 'http://localhost:8080/') {
-        // location = 'http://revolutiafiscala.edw.ro'
-    // } else {
     var location = window.location.href
-    // }
+
+    var min_2018 = 1950;
+    var max_2018 = 3600;
+    var ded_fixa = 510;
+
+    function deducere_persoanala(brut){
+      if (brut <= min_2018) {
+        return ded_fixa;
+      } else {
+        if (brut >= max_2018){
+          return 0;
+        }
+      } else {
+        return Math.ceil((max_2018 - brut + 1) / 50) * 15;
+      }
+    }
+
 
     $('meta[property="og:url"]').attr('content', location)
 
@@ -51,7 +61,7 @@ $(document).ready(function() {
 
     function fara_contrib_cu_impozit(net) {
         brut = net / 0.7014;
-        return brut * 0.585;
+        return brut * 0.585 + 0.1 * deducere_persoanala(brut);
     }
 
     function isInArray(myArray, value) {
