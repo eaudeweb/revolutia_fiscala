@@ -7,15 +7,17 @@ $(document).ready(function() {
     var ded_fixa = 510;
 
     function deducere_persoanala(brut){
+      console.log(brut)
       if (brut <= min_2018) {
         return ded_fixa;
       } else {
         if (brut >= max_2018){
           return 0;
         }
-      } else {
-        return Math.ceil((max_2018 - brut + 1) / 50) * 15;
-      }
+        else {
+          return Math.ceil((max_2018 - brut + 1) / 50) * 15;
+        }
+      } 
     }
 
 
@@ -61,6 +63,7 @@ $(document).ready(function() {
 
     function fara_contrib_cu_impozit(net) {
         brut = net / 0.7014;
+        console.log(deducere_persoanala(brut))
         return brut * 0.585 + 0.1 * deducere_persoanala(brut);
     }
 
