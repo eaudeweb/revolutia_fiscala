@@ -109,7 +109,7 @@ $(document).ready(function() {
 
             this.overlay(true)
 
-            this.imageUrl = location + '/static/fb/';
+            this.imageUrl = location;
 
             if (this.bugetarAngajat() === 'true') { // bugetar
               result.trebuie = trebuia(result.net).toFixed(2);
