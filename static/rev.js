@@ -116,7 +116,7 @@ $(document).ready(function() {
               result.este = este_cu_impozit(result.net);
               result.procent = procentaj_pierdere(result.trebuie, result.este, result.net).toFixed(2);
               result.procent = result.procent.toString().replace('.', ',');
-              this.imageUrl += 'bugetar_cu_impozit_1499524214at.png';
+              this.imageUrl += 'bugetar_cu_impozit_1499524214at.html';
               result.diferenta = (result.trebuie - result.net).toString().replace('.', ',');
               result.diferenta_reala = (result.este - result.net).toFixed(2).toString().replace('.', ',');
             } else { // privat
