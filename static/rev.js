@@ -148,7 +148,12 @@ $(document).ready(function() {
                 // xxx net - este
                 result.diferenta = (result.net - result.este).toFixed(2).toString().replace('.', ',');
                 result.contrib = contrib_procentaj_pierdere(result.este, result.net).toFixed(2); // procent
-                var new_proc = Math.ceil(result.contrib);
+                if(result.contrib < 12){
+                  var new_proc = 12;
+                }else {
+                  var new_proc = Math.round(result.contrib);
+                }
+
                 result.contrib = result.contrib.toString().replace('.', ',');
                 this.imageUrl += 'nu_cu_impozit' + new_proc + '_9841434880gt.html';
               }
