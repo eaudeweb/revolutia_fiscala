@@ -152,7 +152,7 @@ $(document).ready(function() {
         }
 
         this.shareImageOnFacebook = function shareImageOnFacebook() {
-            window.open('http://www.facebook.com/sharer.php?u=' + encodeURIComponent(this.imageUrl), 'sharer', "_top", 'toolbar=0,status=0,width=626,height=436');
+            window.open('http://www.facebook.com/sharer.php?m2w&u=' + encodeURIComponent(this.imageUrl), 'sharer', "_top", 'toolbar=0,status=0,width=626,height=436');
             return false;
         }
     };
