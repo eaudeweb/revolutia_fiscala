@@ -107,9 +107,6 @@ $(document).ready(function() {
               this.button1Visible(false);
             }
 
-            console.log(this.invalidForm())
-            console.log(this.button1Visible())
-
             this.overlay(true)
 
             this.imageUrl = location + '/static/fb/';
@@ -145,8 +142,6 @@ $(document).ready(function() {
             this.button1Visible(true);
             this.result(result);
 
-            // result.diferenta = result.diferenta.toString().replace('.', ',');
-            // console.log(result.diferenta);
 
             return result;
         };
