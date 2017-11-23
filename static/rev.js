@@ -1,13 +1,13 @@
 $(document).ready(function() {
 
 
-    var location;
+    // var location;
 
-    if (window.location.href == 'http://localhost:8080/') {
-        location = 'http://revolutiafiscala.edw.ro'
-    } else {
-        location = window.location.href
-    }
+    // if (window.location.href == 'http://localhost:8080/') {
+        // location = 'http://revolutiafiscala.edw.ro'
+    // } else {
+    var location = window.location.href
+    // }
 
     $('meta[property="og:url"]').attr('content', location)
 
