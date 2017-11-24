@@ -23,11 +23,19 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110127559-1"></script>
     <script>
+     var tip_angajat;
+
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'UA-110127559-1');
+      gtag('config', 'UA-110127559-1', {
+        'custom_map': {'dimension1': 'angajat'}
+      });
+      // Sends an event that passes 'avg_page_load_time' as a parameter.
+      gtag('resultSubmit', 'tip_angajat', {'angajat': tip_angajat})
+      // var dimensionValue = 'SOME_DIMENSION_VALUE';
+    
     </script>
 </head>
 

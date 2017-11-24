@@ -6,6 +6,8 @@ $(document).ready(function() {
     var max_2018 = 3600;
     var ded_fixa = 510;
 
+
+
     function deducere_persoanala(brut){
       console.log(brut)
       if (brut <= min_2018) {
@@ -58,6 +60,7 @@ $(document).ready(function() {
 
     function fara_contrib_fara_impozit(net) {
         brut = net / 0.835;
+        console.log(brut)
         return brut * 0.65;
     }
 
@@ -132,6 +135,7 @@ $(document).ready(function() {
               this.imageUrl += 'bugetar_cu_impozit_1499524214at.html';
               result.diferenta = (result.trebuie - result.net).toString().replace('.', ',');
               result.diferenta_reala = (result.este - result.net).toFixed(2).toString().replace('.', ',');
+              tip_angajat = 'bugetar'
             } else { // privat
               if (this.domeniuSelected() === 'true') { // fara impozit
 
@@ -142,7 +146,7 @@ $(document).ready(function() {
                 result.contrib = result.contrib.toString().replace('.', ',');
                 result.diferenta_reala = (result.net - este_fara_impozit(result.net)).toFixed(2).toString().replace('.', ',');
                 this.imageUrl += 'nu_fara_impozit_9507080543ht.html';
-
+                tip_angajat = 'privat_nescutit'
               } else { // cu impozit
                 result.este = fara_contrib_cu_impozit(result.net);
                 // xxx net - este
@@ -156,12 +160,17 @@ $(document).ready(function() {
 
                 result.contrib = result.contrib.toString().replace('.', ',');
                 this.imageUrl += 'nu_cu_impozit' + new_proc + '_9841434880gt.html';
+                tip_angajat = 'privat_scutit'
+
               }
             }
             this.button1Visible(true);
             this.result(result);
 
+            $( document ).trigger( "resultSubmit");
 
+    
+            
             return result;
         };
 
@@ -208,4 +217,4 @@ function generateHash() {
     }
 
     return id
-}
+}  
