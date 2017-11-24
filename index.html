@@ -110,7 +110,7 @@
             </div>
         </div>
         <!-- Start validation -->
-        <div class="answer" style="display: none;" data-bind="fadeVisible:  invalidForm() && button1Visible(),
+        <div class="answer error" style="display: none;" data-bind="fadeVisible:  invalidForm() && button1Visible(),
     css: {'answer_visible': invalidForm() && button1Visible()}">
             <div class="close" data-bind="event:{ click: reset}">
                 ✖
@@ -124,11 +124,13 @@
         <div class="answer a1" style="display: none;" data-bind="fadeVisible:  angajat() === 'true'
     && bugetarAngajat() === 'true'
     && !invalidForm()
-    && button1Visible(),
+    && button1Visible()
+    && salariu() >= 1450,
     css: {'answer_visible': angajat() === 'true'
         && !invalidForm()
         && bugetarAngajat() === 'true'
         && button1Visible()
+        && salariu() >= 1450
     }
     ">
             <div class="close" data-bind="event:{ click: reset}">
@@ -160,11 +162,13 @@
         <div class="answer-group a2" data-bind="fadeVisible:  angajat() === 'true'
     && bugetarAngajat() === 'false'
     && !invalidForm()
-    && button1Visible(),
+    && button1Visible()
+    && salariu() >= 1450,
     css: {'answer_visible': angajat() === 'true'
         && !invalidForm()
         && bugetarAngajat() === 'false'
         && button1Visible()
+        && salariu() >= 1450
     }
     ">
             <!-- Start answer a2_1 //fara impozit-->
@@ -173,12 +177,14 @@
         && !invalidForm()
         && bugetarAngajat() === 'false'
         && button1Visible()
-        && (transfer() === 'nu' && domeniuSelected() === 'true'),
+        && (transfer() === 'nu' && domeniuSelected() === 'true')
+        && salariu() >= 1450,
         css: {'answer_visible': angajat() === 'true'
             && !invalidForm()
             && bugetarAngajat() === 'false'
             && button1Visible()
             && (transfer() === 'nu' && domeniuSelected() === 'true')
+            && salariu() >= 1450
         }
         ">
                 <div class="close" data-bind="event:{ click: reset}">
@@ -216,12 +222,14 @@
         && !invalidForm()
         && bugetarAngajat() === 'false'
         && button1Visible()
-        && (transfer() === 'nu' && domeniuSelected() === 'false'),
+        && (transfer() === 'nu' && domeniuSelected() === 'false')
+        && salariu() >= 1450,
         css: {'answer_visible': angajat() === 'true'
             && !invalidForm()
             && bugetarAngajat() === 'false'
             && button1Visible()
             && (transfer() === 'nu' && domeniuSelected() === 'false')
+            && salariu() >= 1450
         }
         ">
                 <div class="close" data-bind="event:{ click: reset}">
@@ -254,6 +262,22 @@
                 <button data-bind="click: shareImageOnFacebook">Distribuie</button>
             </div>
             <!-- End answer a2_2 -->
+        </div>
+        <div style="display:none" class="answer error a3"
+        data-bind="fadeVisible:  angajat() === 'true'
+            && !invalidForm()
+            && button1Visible()
+            && salariu() < 1450,
+            css: {'answer_visible': angajat() === 'true'
+                && !invalidForm()
+                && button1Visible()
+                && salariu() < 1450
+            }
+            ">
+             <div class="close" data-bind="event:{ click: reset}">
+                    ✖
+                </div>
+            <p>Ne pare rău. Nu putem să calculăm noul tău salariu revoluționar.</p>
         </div>
     </div>
     <div class="footer">

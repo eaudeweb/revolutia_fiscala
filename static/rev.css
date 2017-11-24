@@ -587,3 +587,7 @@ transform: translateY(-50%);
     background: rgba(0,0,0,0.5);
     z-index: 2;
 }
+
+.answer.error {
+    padding-bottom: 0;
+}
