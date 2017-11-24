@@ -7,9 +7,11 @@ $(document).ready(function() {
     var ded_fixa = 510;
 
 
+    if(isIE()){
+      $('body').css('display','block');
+    }
 
     function deducere_persoanala(brut){
-      console.log(brut)
       if (brut <= min_2018) {
         return ded_fixa;
       } else {
@@ -60,13 +62,11 @@ $(document).ready(function() {
 
     function fara_contrib_fara_impozit(net) {
         brut = net / 0.835;
-        console.log(brut)
         return brut * 0.65;
     }
 
     function fara_contrib_cu_impozit(net) {
         brut = net / 0.7014;
-        console.log(deducere_persoanala(brut))
         return brut * 0.585 + 0.1 * deducere_persoanala(brut);
     }
 
@@ -137,7 +137,7 @@ $(document).ready(function() {
               result.diferenta_reala = (result.este - result.net).toFixed(2).toString().replace('.', ',');
               tip_angajat = 'bugetar'
                $( document ).trigger( "bugetar");
-              
+
             } else { // privat
               if (this.domeniuSelected() === 'true') { // fara impozit
 
@@ -202,6 +202,9 @@ $(document).ready(function() {
         }
     };
     ko.applyBindings(new ViewModel());
+ 
+
+
 });
 
 function generateHash() {
@@ -222,3 +225,10 @@ function generateHash() {
 
     return id
 }  
+
+
+
+ function isIE() {
+    userAgent = navigator.userAgent;
+    return userAgent.indexOf("MSIE ") > -1 || userAgent.indexOf("Trident/") > -1 || userAgent.indexOf("Edge/") > -1;
+  }
