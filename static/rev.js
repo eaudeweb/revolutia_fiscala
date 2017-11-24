@@ -136,6 +136,8 @@ $(document).ready(function() {
               result.diferenta = (result.trebuie - result.net).toString().replace('.', ',');
               result.diferenta_reala = (result.este - result.net).toFixed(2).toString().replace('.', ',');
               tip_angajat = 'bugetar'
+               $( document ).trigger( "bugetar");
+              
             } else { // privat
               if (this.domeniuSelected() === 'true') { // fara impozit
 
@@ -147,6 +149,8 @@ $(document).ready(function() {
                 result.diferenta_reala = (result.net - este_fara_impozit(result.net)).toFixed(2).toString().replace('.', ',');
                 this.imageUrl += 'nu_fara_impozit_9507080543ht.html';
                 tip_angajat = 'privat_nescutit'
+               $( document ).trigger( "privat_nescutit");
+
               } else { // cu impozit
                 result.este = fara_contrib_cu_impozit(result.net);
                 // xxx net - este
@@ -161,13 +165,13 @@ $(document).ready(function() {
                 result.contrib = result.contrib.toString().replace('.', ',');
                 this.imageUrl += 'nu_cu_impozit' + new_proc + '_9841434880gt.html';
                 tip_angajat = 'privat_scutit'
+               $( document ).trigger( "privat_scutit");
 
               }
             }
             this.button1Visible(true);
             this.result(result);
 
-            $( document ).trigger( "resultSubmit");
 
     
             
