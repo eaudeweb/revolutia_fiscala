@@ -125,12 +125,12 @@
     && bugetarAngajat() === 'true'
     && !invalidForm()
     && button1Visible()
-    && salariu() >= 1450,
+    && salariu() >= 1000,
     css: {'answer_visible': angajat() === 'true'
         && !invalidForm()
         && bugetarAngajat() === 'true'
         && button1Visible()
-        && salariu() >= 1450
+        && salariu() >= 1000
     }
     ">
             <div class="close" data-bind="event:{ click: reset}">
@@ -163,12 +163,12 @@
     && bugetarAngajat() === 'false'
     && !invalidForm()
     && button1Visible()
-    && salariu() >= 1450,
+    && salariu() >= 1000,
     css: {'answer_visible': angajat() === 'true'
         && !invalidForm()
         && bugetarAngajat() === 'false'
         && button1Visible()
-        && salariu() >= 1450
+        && salariu() >= 1000
     }
     ">
             <!-- Start answer a2_1 //fara impozit-->
@@ -178,13 +178,13 @@
         && bugetarAngajat() === 'false'
         && button1Visible()
         && (transfer() === 'nu' && domeniuSelected() === 'true')
-        && salariu() >= 1450,
+        && salariu() >= 1000,
         css: {'answer_visible': angajat() === 'true'
             && !invalidForm()
             && bugetarAngajat() === 'false'
             && button1Visible()
             && (transfer() === 'nu' && domeniuSelected() === 'true')
-            && salariu() >= 1450
+            && salariu() >= 1000
         }
         ">
                 <div class="close" data-bind="event:{ click: reset}">
@@ -223,13 +223,13 @@
         && bugetarAngajat() === 'false'
         && button1Visible()
         && (transfer() === 'nu' && domeniuSelected() === 'false')
-        && salariu() >= 1450,
+        && salariu() >= 1000,
         css: {'answer_visible': angajat() === 'true'
             && !invalidForm()
             && bugetarAngajat() === 'false'
             && button1Visible()
             && (transfer() === 'nu' && domeniuSelected() === 'false')
-            && salariu() >= 1450
+            && salariu() >= 1000
         }
         ">
                 <div class="close" data-bind="event:{ click: reset}">
@@ -267,11 +267,11 @@
         data-bind="fadeVisible:  angajat() === 'true'
             && !invalidForm()
             && button1Visible()
-            && salariu() < 1450,
+            && salariu() < 1000,
             css: {'answer_visible': angajat() === 'true'
                 && !invalidForm()
                 && button1Visible()
-                && salariu() < 1450
+                && salariu() < 1000
             }
             ">
              <div class="close" data-bind="event:{ click: reset}">
