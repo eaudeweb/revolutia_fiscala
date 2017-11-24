@@ -28,14 +28,10 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
-      gtag('config', 'UA-110127559-1', {
-        'custom_map': {'dimension1': 'angajat'}
-      });
+      console.log(gtag())
+      gtag('config', 'UA-110127559-1');
       // Sends an event that passes 'avg_page_load_time' as a parameter.
-      gtag('resultSubmit', 'tip_angajat', {'angajat': tip_angajat})
-      // var dimensionValue = 'SOME_DIMENSION_VALUE';
-    
+      gtag('event', 'resultSubmit', {'tip_angajat': tip_angajat});
     </script>
 </head>
 
